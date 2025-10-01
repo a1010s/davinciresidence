@@ -477,11 +477,15 @@ console.log(`
 
 // Language Selector functionality
 function initLanguageSelector() {
+    console.log('Initializing language selector...');
     const languageSelect = document.getElementById('language-select');
+    console.log('Language select element:', languageSelect);
     
     if (languageSelect) {
+        console.log('Language selector found, adding event listener...');
         languageSelect.addEventListener('change', function() {
             const selectedLanguage = this.value;
+            console.log('Language selector changed to:', selectedLanguage);
             translatePage(selectedLanguage);
             
             // Store language preference
@@ -493,25 +497,33 @@ function initLanguageSelector() {
         // Load saved language preference
         const savedLanguage = localStorage.getItem('selectedLanguage');
         if (savedLanguage) {
+            console.log('Loading saved language:', savedLanguage);
             languageSelect.value = savedLanguage;
             translatePage(savedLanguage);
         }
+    } else {
+        console.error('Language selector element not found!');
     }
 }
 
 // Translate page content
 function translatePage(language) {
+    console.log(`Translating page to: ${language}`);
+    
     // Update navigation links
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         const text = link.getAttribute(`data-${language}`);
         if (text) {
             link.textContent = text;
+            console.log(`Translated nav link: ${text}`);
         }
     });
     
     // Update all elements with translation data attributes
     const translatableElements = document.querySelectorAll('[data-en]');
+    console.log(`Found ${translatableElements.length} translatable elements`);
+    
     translatableElements.forEach(element => {
         const text = element.getAttribute(`data-${language}`);
         if (text) {
@@ -519,12 +531,20 @@ function translatePage(language) {
             const btnText = element.querySelector('.btn-text');
             if (btnText) {
                 btnText.textContent = text;
+                console.log(`Translated button text: ${text}`);
             } else {
                 element.textContent = text;
+                console.log(`Translated element: ${text}`);
             }
         }
     });
 }
+
+// Test function for manual translation
+window.testTranslation = function(language) {
+    console.log('Manual translation test to:', language);
+    translatePage(language);
+};
 
 // Export functions for potential external use
 window.DaVinciResidence = {
@@ -532,5 +552,7 @@ window.DaVinciResidence = {
     closeLightbox,
     navigateLightbox,
     revealOnScroll,
-    initScrollAnimations
+    initScrollAnimations,
+    translatePage,
+    testTranslation
 };
