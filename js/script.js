@@ -1,4 +1,5 @@
-// Modern JavaScript for Leonardo da Vinci Residence Website
+// Ultra-Modern JavaScript for Leonardo da Vinci Residence Website
+// Optimized for Cloudflare Pages
 
 document.addEventListener("DOMContentLoaded", function() {
     // Initialize all functionality
@@ -7,6 +8,13 @@ document.addEventListener("DOMContentLoaded", function() {
     initGallery();
     initAnimations();
     initContactForm();
+    initParallax();
+    initCounters();
+    initLazyLoading();
+    initPerformanceOptimizations();
+    
+    // Add loaded class for CSS animations
+    document.body.classList.add('loaded');
 });
 
 // Navigation functionality
@@ -212,13 +220,248 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-// Console welcome message
+// Parallax effects
+function initParallax() {
+    const parallaxElements = document.querySelectorAll('.hero');
+    
+    if (parallaxElements.length === 0) return;
+    
+    const handleParallax = () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        parallaxElements.forEach(element => {
+            element.style.transform = `translateY(${rate}px)`;
+        });
+    };
+    
+    // Use requestAnimationFrame for smooth performance
+    let ticking = false;
+    const updateParallax = () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                handleParallax();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    };
+    
+    window.addEventListener('scroll', updateParallax, { passive: true });
+}
+
+// Counter animations
+function initCounters() {
+    const counters = document.querySelectorAll('.counter');
+    if (counters.length === 0) return;
+    
+    const animateCounter = (counter) => {
+        const target = parseInt(counter.getAttribute('data-target')) || 0;
+        const duration = 2000;
+        const increment = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+            if (current < target) {
+                current += increment;
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        updateCounter();
+    };
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => counterObserver.observe(counter));
+}
+
+// Enhanced lazy loading
+function initLazyLoading() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    if (images.length === 0) return;
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                    }
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+        });
+        
+        images.forEach(img => imageObserver.observe(img));
+    }
+}
+
+// Performance optimizations
+function initPerformanceOptimizations() {
+    // Preload critical resources
+    const preloadLinks = [
+        { href: 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap', as: 'style' },
+        { href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', as: 'style' }
+    ];
+    
+    preloadLinks.forEach(link => {
+        const linkElement = document.createElement('link');
+        linkElement.rel = 'preload';
+        linkElement.href = link.href;
+        linkElement.as = link.as;
+        document.head.appendChild(linkElement);
+    });
+    
+    // Optimize scroll events
+    let scrollTimeout;
+    const optimizedScrollHandler = () => {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(() => {
+            // Handle scroll-dependent operations here
+        }, 16); // ~60fps
+    };
+    
+    window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
+    
+    // Add touch support detection
+    if ('ontouchstart' in window) {
+        document.body.classList.add('touch-device');
+    }
+    
+    // Add reduced motion support
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.body.classList.add('reduced-motion');
+    }
+}
+
+// Enhanced scroll animations with stagger effect
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('animated');
+                }, index * 100); // Stagger animation
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Smooth reveal animation for sections
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.section-header, .feature, .amenity, .testimonial');
+    
+    reveals.forEach((reveal, index) => {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveal.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < windowHeight - elementVisible) {
+            setTimeout(() => {
+                reveal.classList.add('animate-on-scroll', 'animated');
+            }, index * 50);
+        }
+    });
+}
+
+// Enhanced error handling
+function initErrorHandling() {
+    // Handle image loading errors
+    document.addEventListener('error', (e) => {
+        if (e.target.tagName === 'IMG') {
+            e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OTk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBmb3VuZDwvdGV4dD48L3N2Zz4=';
+            e.target.alt = 'Image not found';
+        }
+    }, true);
+    
+    // Handle JavaScript errors gracefully
+    window.addEventListener('error', (e) => {
+        console.warn('JavaScript error handled gracefully:', e.error);
+    });
+}
+
+// Initialize error handling
+initErrorHandling();
+
+// Enhanced scroll handler with throttling
+const throttledScrollHandler = throttle(() => {
+    revealOnScroll();
+}, 100);
+
+window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+
+// Utility functions
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Console welcome message with enhanced styling
 console.log(`
-🏖️  Welcome to Leonardo da Vinci Residence!
-   
+%c🏖️  Welcome to Leonardo da Vinci Residence!
+%c
    Your perfect Mediterranean escape in Badesi, Sardinia.
    
-   Built with modern web technologies and optimized for performance.
+   Built with modern web technologies and optimized for Cloudflare Pages.
    
    For inquiries: info@davinciresidence.com
-`);
+`, 
+'color: #2563eb; font-size: 16px; font-weight: bold;',
+'color: #6b7280; font-size: 14px;'
+);
+
+// Export functions for potential external use
+window.DaVinciResidence = {
+    openLightbox,
+    closeLightbox,
+    navigateLightbox,
+    revealOnScroll,
+    initScrollAnimations
+};
