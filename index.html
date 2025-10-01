@@ -3,35 +3,342 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leonardo da Vinci Residence - Badesi, Sardinia</title>
+    <meta name="description" content="Experience luxury at Leonardo da Vinci Residence in Badesi, Sardinia. Elegant vacation apartment with stunning Mediterranean views and modern amenities." />
+    <meta name="keywords" content="Sardinia vacation rental, Badesi apartment, Mediterranean beach, luxury accommodation, Italy vacation" />
+    <meta property="og:title" content="Leonardo da Vinci Residence - Luxury in Badesi, Sardinia" />
+    <meta property="og:description" content="Your perfect escape to the Mediterranean. Elegant apartment with beach access and stunning views." />
+    <meta property="og:type" content="website" />
+    <title>Leonardo da Vinci Residence - Luxury Vacation Apartment in Badesi, Sardinia</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
   <body>
-    <header>
-      <h1>Leonardo da Vinci Residence</h1>
-      <p>Your elegant stay in Badesi, Sardinia</p>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h2>Leonardo da Vinci Residence</h2>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#amenities" class="nav-link">Amenities</a>
+          </li>
+          <li class="nav-item">
+            <a href="#gallery" class="nav-link">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a href="#location" class="nav-link">Location</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Leonardo da Vinci Residence</h1>
+        <p class="hero-subtitle">Your Elegant Mediterranean Escape in Badesi, Sardinia</p>
+        <p class="hero-description">
+          Experience the perfect blend of Italian luxury and Mediterranean charm. 
+          Just steps from pristine beaches and crystal-clear waters.
+        </p>
+        <div class="hero-buttons">
+          <a href="#gallery" class="btn btn-primary">
+            <i class="fas fa-images"></i> View Gallery
+          </a>
+          <a href="https://www.airbnb.com/rooms/YOUR-LINK" target="_blank" class="btn btn-secondary">
+            <i class="fas fa-calendar-check"></i> Book Now
+          </a>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+      </div>
     </header>
 
-    <main class="content">
-      <h2>Welcome to Casa Da Vinci</h2>
-      <p>
-        Experience Sardinia at our beautiful residence in Badesi. Just minutes
-        from the Mediterranean beaches, Casa Da Vinci combines Italian elegance
-        with modern comfort.
-      </p>
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>Welcome to Casa Da Vinci</h2>
+          <p class="section-subtitle">Where Italian elegance meets Mediterranean paradise</p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Nestled in the charming coastal town of Badesi, our Leonardo da Vinci Residence 
+              offers an unparalleled vacation experience. This beautifully appointed apartment 
+              combines traditional Sardinian architecture with modern luxury amenities.
+            </p>
+            <p>
+              Wake up to breathtaking views of the Mediterranean Sea, enjoy breakfast on your 
+              private terrace, and spend your days exploring pristine beaches just minutes away. 
+              Our residence is designed to provide the perfect backdrop for your Sardinian adventure.
+            </p>
+            <div class="features-grid">
+              <div class="feature">
+                <i class="fas fa-bed"></i>
+                <h4>Luxury Accommodation</h4>
+                <p>Spacious 2-bedroom apartment with premium furnishings</p>
+              </div>
+              <div class="feature">
+                <i class="fas fa-umbrella-beach"></i>
+                <h4>Beach Access</h4>
+                <p>Just 200 meters from the stunning Badesi beach</p>
+              </div>
+              <div class="feature">
+                <i class="fas fa-car"></i>
+                <h4>Free Parking</h4>
+                <p>Convenient on-site parking for your rental car</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <a
-        href="https://www.airbnb.com/rooms/YOUR-LINK"
-        target="_blank"
-        class="btn"
-      >
-        👉 Book Now on Airbnb
-      </a>
+    <!-- Amenities Section -->
+    <section id="amenities" class="amenities">
+      <div class="container">
+        <div class="section-header">
+          <h2>Premium Amenities</h2>
+          <p class="section-subtitle">Everything you need for the perfect stay</p>
+        </div>
+        <div class="amenities-grid">
+          <div class="amenity">
+            <i class="fas fa-wifi"></i>
+            <h4>Free WiFi</h4>
+            <p>High-speed internet throughout the property</p>
+          </div>
+          <div class="amenity">
+            <i class="fas fa-snowflake"></i>
+            <h4>Air Conditioning</h4>
+            <p>Climate control for year-round comfort</p>
+          </div>
+          <div class="amenity">
+            <i class="fas fa-utensils"></i>
+            <h4>Fully Equipped Kitchen</h4>
+            <p>Modern appliances and cookware for home cooking</p>
+          </div>
+          <div class="amenity">
+            <i class="fas fa-swimming-pool"></i>
+            <h4>Shared Pool</h4>
+            <p>Community pool with sun loungers</p>
+          </div>
+          <div class="amenity">
+            <i class="fas fa-tshirt"></i>
+            <h4>Washing Machine</h4>
+            <p>In-unit laundry facilities</p>
+          </div>
+          <div class="amenity">
+            <i class="fas fa-tv"></i>
+            <h4>Smart TV</h4>
+            <p>Entertainment system with streaming capabilities</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <div id="gallery"></div>
-    </main>
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+      <div class="container">
+        <div class="section-header">
+          <h2>Photo Gallery</h2>
+          <p class="section-subtitle">Discover the beauty of your Sardinian retreat</p>
+        </div>
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Images will be loaded by JavaScript -->
+        </div>
+      </div>
+    </section>
 
-    <footer>© 2025 Leonardo da Vinci Residence · Badesi, Sardinia</footer>
+    <!-- Location Section -->
+    <section id="location" class="location">
+      <div class="container">
+        <div class="section-header">
+          <h2>Perfect Location</h2>
+          <p class="section-subtitle">Explore the best of Northern Sardinia</p>
+        </div>
+        <div class="location-content">
+          <div class="location-text">
+            <h3>Badesi, Sardinia</h3>
+            <p>
+              Located in the heart of Northern Sardinia, Badesi offers the perfect 
+              combination of pristine beaches, authentic Italian culture, and modern 
+              conveniences. Our residence is strategically positioned to give you 
+              easy access to all the region has to offer.
+            </p>
+            <div class="nearby-attractions">
+              <h4>Nearby Attractions:</h4>
+              <ul>
+                <li><i class="fas fa-map-marker-alt"></i> Badesi Beach - 200m</li>
+                <li><i class="fas fa-map-marker-alt"></i> Isola Rossa - 5km</li>
+                <li><i class="fas fa-map-marker-alt"></i> Castelsardo - 15km</li>
+                <li><i class="fas fa-map-marker-alt"></i> Alghero Airport - 45km</li>
+                <li><i class="fas fa-map-marker-alt"></i> Sassari - 30km</li>
+              </ul>
+            </div>
+          </div>
+          <div class="location-map">
+            <div class="map-placeholder">
+              <i class="fas fa-map-marked-alt"></i>
+              <p>Interactive Map</p>
+              <small>Badesi, Sardinia, Italy</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2>Guest Reviews</h2>
+          <p class="section-subtitle">What our guests say about their stay</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>"Absolutely stunning location! The apartment was immaculate and the beach access was incredible. Perfect for a romantic getaway."</p>
+            <div class="testimonial-author">
+              <strong>Sarah & Marco</strong>
+              <span>Milan, Italy</span>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>"The best vacation rental we've ever stayed in. The attention to detail and the beautiful surroundings made our trip unforgettable."</p>
+            <div class="testimonial-author">
+              <strong>Jennifer & David</strong>
+              <span>London, UK</span>
+            </div>
+          </div>
+          <div class="testimonial">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>"Perfect for families! The kids loved the pool and beach, while we enjoyed the peaceful evenings on the terrace."</p>
+            <div class="testimonial-author">
+              <strong>Family Müller</strong>
+              <span>Berlin, Germany</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Book Your Stay</h2>
+          <p class="section-subtitle">Ready to experience paradise? Get in touch today!</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <strong>Address</strong>
+                <p>Badesi, Sardinia, Italy</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <strong>Phone</strong>
+                <p>+39 XXX XXX XXXX</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <strong>Email</strong>
+                <p>info@davinciresidence.com</p>
+              </div>
+            </div>
+            <div class="contact-buttons">
+              <a href="https://www.airbnb.com/rooms/YOUR-LINK" target="_blank" class="btn btn-primary">
+                <i class="fab fa-airbnb"></i> Book on Airbnb
+              </a>
+              <a href="mailto:info@davinciresidence.com" class="btn btn-secondary">
+                <i class="fas fa-envelope"></i> Send Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Leonardo da Vinci Residence</h3>
+            <p>Your perfect Mediterranean escape in the heart of Sardinia.</p>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#amenities">Amenities</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#location">Location</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p><i class="fas fa-map-marker-alt"></i> Badesi, Sardinia, Italy</p>
+            <p><i class="fas fa-envelope"></i> info@davinciresidence.com</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Leonardo da Vinci Residence. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
 
     <script src="js/script.js"></script>
   </body>
