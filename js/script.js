@@ -478,19 +478,11 @@ console.log(`
 // Language Selector functionality
 function initLanguageSelector() {
     const languageSelect = document.getElementById('language-select');
-    const navLinks = document.querySelectorAll('.nav-link');
     
     if (languageSelect) {
         languageSelect.addEventListener('change', function() {
             const selectedLanguage = this.value;
-            
-            // Update navigation links
-            navLinks.forEach(link => {
-                const text = link.getAttribute(`data-${selectedLanguage}`);
-                if (text) {
-                    link.textContent = text;
-                }
-            });
+            translatePage(selectedLanguage);
             
             // Store language preference
             localStorage.setItem('selectedLanguage', selectedLanguage);
@@ -502,9 +494,36 @@ function initLanguageSelector() {
         const savedLanguage = localStorage.getItem('selectedLanguage');
         if (savedLanguage) {
             languageSelect.value = savedLanguage;
-            languageSelect.dispatchEvent(new Event('change'));
+            translatePage(savedLanguage);
         }
     }
+}
+
+// Translate page content
+function translatePage(language) {
+    // Update navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        const text = link.getAttribute(`data-${language}`);
+        if (text) {
+            link.textContent = text;
+        }
+    });
+    
+    // Update all elements with translation data attributes
+    const translatableElements = document.querySelectorAll('[data-en]');
+    translatableElements.forEach(element => {
+        const text = element.getAttribute(`data-${language}`);
+        if (text) {
+            // Handle button text specially
+            const btnText = element.querySelector('.btn-text');
+            if (btnText) {
+                btnText.textContent = text;
+            } else {
+                element.textContent = text;
+            }
+        }
+    });
 }
 
 // Export functions for potential external use
