@@ -195,7 +195,7 @@
       
       .hero {
         height: 100vh;
-        background: linear-gradient(135deg, rgba(37, 99, 235, 0.85) 0%, rgba(30, 58, 138, 0.9) 100%), url('img/terrace.jpg') center/cover no-repeat;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.4) 0%, rgba(30, 58, 138, 0.5) 100%), url('img/terrace.jpg') center/cover no-repeat;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -255,9 +255,13 @@
       }
       
       .hero-description {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         font-size: clamp(18px, 2vw, 24px);
+        font-weight: 400;
+        letter-spacing: -0.01em;
         margin-bottom: 40px;
         opacity: 0.9;
+        line-height: 1.5;
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
@@ -1093,7 +1097,14 @@
         }
         
         .language-selector {
-          display: none;
+          display: flex;
+          margin-top: 16px;
+          justify-content: center;
+        }
+        
+        .language-selector select {
+          font-size: 14px;
+          padding: 8px 12px;
         }
 
         .hamburger:hover {
@@ -1302,13 +1313,13 @@
               </div>
               <div class="feature">
                 <i class="fas fa-umbrella-beach"></i>
-                <h4>Beach Access</h4>
-                <p>Just 5 minutes from the stunning Li Junchi Beach</p>
+                <h4 data-en="Beach Access" data-de="Strandzugang" data-it="Accesso alla spiaggia" data-ro="Acces la plajă" data-fr="Accès à la plage">Beach Access</h4>
+                <p data-en="Just 5 minutes from the stunning Li Junchi Beach" data-de="Nur 5 Minuten vom atemberaubenden Li Junchi Strand" data-it="Solo 5 minuti dalla splendida spiaggia di Li Junchi" data-ro="Doar 5 minute de la plaja uimitoare Li Junchi" data-fr="À seulement 5 minutes de la magnifique plage de Li Junchi">Just 5 minutes from the stunning Li Junchi Beach</p>
               </div>
               <div class="feature">
                 <i class="fas fa-car"></i>
-                <h4>Free Parking</h4>
-                <p>Convenient on-site parking for your rental car</p>
+                <h4 data-en="Free Parking" data-de="Kostenloses Parken" data-it="Parcheggio Gratuito" data-ro="Parcare Gratuit" data-fr="Parking Gratuit">Free Parking</h4>
+                <p data-en="Convenient on-site parking for your rental car" data-de="Bequemes Parken vor Ort für Ihr Mietauto" data-it="Parcheggio conveniente in loco per la tua auto a noleggio" data-ro="Parcare convenabilă pe loc pentru mașina ta de închiriat" data-fr="Parking pratique sur place pour votre voiture de location">Convenient on-site parking for your rental car</p>
               </div>
             </div>
           </div>
@@ -1327,34 +1338,34 @@
         <div class="apartment-layout">
           <!-- Left Column - Apartment Features -->
           <div class="apartment-features">
-            <h3><i class="fas fa-home"></i> Apartment Features</h3>
+            <h3><i class="fas fa-home"></i> <span data-en="Apartment Features" data-de="Wohnungsausstattung" data-it="Caratteristiche dell'Appartamento" data-ro="Caracteristici Apartament" data-fr="Caractéristiques de l'Appartement">Apartment Features</span></h3>
             <div class="features-list">
               <div class="feature-item">
                 <i class="fas fa-bed"></i>
                 <div class="feature-content">
-                  <h4>2-Room Apartment</h4>
-                  <p>1 comfortable bedroom + 1 living room - perfectly designed for your stay</p>
+                  <h4 data-en="2-Room Apartment" data-de="2-Zimmer-Wohnung" data-it="Appartamento di 2 Stanze" data-ro="Apartament cu 2 Camere" data-fr="Appartement de 2 Pièces">2-Room Apartment</h4>
+                  <p data-en="1 comfortable bedroom + 1 living room - perfectly designed for your stay" data-de="1 gemütliches Schlafzimmer + 1 Wohnzimmer - perfekt für Ihren Aufenthalt gestaltet" data-it="1 camera da letto confortevole + 1 soggiorno - perfettamente progettato per il vostro soggiorno" data-ro="1 dormitor confortabil + 1 living - perfect proiectat pentru șederea voastră" data-fr="1 chambre confortable + 1 salon - parfaitement conçu pour votre séjour">1 comfortable bedroom + 1 living room - perfectly designed for your stay</p>
                 </div>
               </div>
               <div class="feature-item">
                 <i class="fas fa-shower"></i>
                 <div class="feature-content">
-                  <h4>Modern Bathroom</h4>
-                  <p>Fully equipped with all modern amenities</p>
+                  <h4 data-en="Modern Bathroom" data-de="Modernes Badezimmer" data-it="Bagno Moderno" data-ro="Baie Modernă" data-fr="Salle de Bain Moderne">Modern Bathroom</h4>
+                  <p data-en="Fully equipped with all modern amenities" data-de="Vollständig ausgestattet mit allen modernen Annehmlichkeiten" data-it="Completamente attrezzato con tutti i comfort moderni" data-ro="Complet echipat cu toate facilitățile moderne" data-fr="Entièrement équipé avec tous les équipements modernes">Fully equipped with all modern amenities</p>
                 </div>
               </div>
               <div class="feature-item">
                 <i class="fas fa-couch"></i>
                 <div class="feature-content">
-                  <h4>Bright Living Area</h4>
-                  <p>Well-designed living space, perfectly optimized for comfort and relaxation</p>
+                  <h4 data-en="Bright Living Area" data-de="Heller Wohnbereich" data-it="Area Soggiorno Luminosa" data-ro="Zonă de Zi Luminoasă" data-fr="Espace de Vie Lumineux">Bright Living Area</h4>
+                  <p data-en="Well-designed living space, perfectly optimized for comfort and relaxation" data-de="Gut gestalteter Wohnbereich, perfekt für Komfort und Entspannung optimiert" data-it="Spazio soggiorno ben progettato, perfettamente ottimizzato per comfort e relax" data-ro="Spațiu de zi bine proiectat, perfect optimizat pentru confort și relaxare" data-fr="Espace de vie bien conçu, parfaitement optimisé pour le confort et la détente">Well-designed living space, perfectly optimized for comfort and relaxation</p>
                 </div>
               </div>
               <div class="feature-item">
                 <i class="fas fa-snowflake"></i>
                 <div class="feature-content">
-                  <h4>Air Conditioning</h4>
-                  <p>Stay cool even during the warmest months</p>
+                  <h4 data-en="Air Conditioning" data-de="Klimaanlage" data-it="Aria Condizionata" data-ro="Aer Condiționat" data-fr="Climatisation">Air Conditioning</h4>
+                  <p data-en="Stay cool even during the warmest months" data-de="Bleiben Sie auch in den wärmsten Monaten kühl" data-it="Rimanete freschi anche durante i mesi più caldi" data-ro="Rămâneți răcoare chiar și în lunile cele mai calde" data-fr="Restez au frais même pendant les mois les plus chauds">Stay cool even during the warmest months</p>
                 </div>
               </div>
               <div class="feature-item">
@@ -1390,29 +1401,29 @@
           
           <!-- Right Column - Location & Access -->
           <div class="location-access">
-            <h3><i class="fas fa-map-marker-alt"></i> Perfect Location</h3>
+            <h3><i class="fas fa-map-marker-alt"></i> <span data-en="Perfect Location" data-de="Perfekte Lage" data-it="Posizione Perfetta" data-ro="Locație Perfectă" data-fr="Emplacement Parfait">Perfect Location</span></h3>
             
             <div class="access-points">
-              <h4><i class="fas fa-plane"></i> Airport Access</h4>
+              <h4><i class="fas fa-plane"></i> <span data-en="Airport Access" data-de="Flughafenzugang" data-it="Accesso Aeroporto" data-ro="Acces Aeroport" data-fr="Accès Aéroport">Airport Access</span></h4>
               <div class="access-item">
-                <strong>Olbia-Costa Smeralda Airport (OLB)</strong>
-                <p>83 km - approximately 1 hour 27 minutes by car</p>
+                <strong data-en="Olbia-Costa Smeralda Airport (OLB)" data-de="Flughafen Olbia-Costa Smeralda (OLB)" data-it="Aeroporto Olbia-Costa Smeralda (OLB)" data-ro="Aeroportul Olbia-Costa Smeralda (OLB)" data-fr="Aéroport Olbia-Costa Smeralda (OLB)">Olbia-Costa Smeralda Airport (OLB)</strong>
+                <p data-en="83 km - approximately 1 hour 27 minutes by car" data-de="83 km - etwa 1 Stunde 27 Minuten mit dem Auto" data-it="83 km - circa 1 ora e 27 minuti in auto" data-ro="83 km - aproximativ 1 oră 27 minute cu mașina" data-fr="83 km - environ 1 heure 27 minutes en voiture">83 km - approximately 1 hour 27 minutes by car</p>
               </div>
               <div class="access-item">
-                <strong>Alghero-Fertilia Airport (AHO)</strong>
-                <p>75 km - approximately 1 hour 20 minutes by car</p>
+                <strong data-en="Alghero-Fertilia Airport (AHO)" data-de="Flughafen Alghero-Fertilia (AHO)" data-it="Aeroporto Alghero-Fertilia (AHO)" data-ro="Aeroportul Alghero-Fertilia (AHO)" data-fr="Aéroport Alghero-Fertilia (AHO)">Alghero-Fertilia Airport (AHO)</strong>
+                <p data-en="75 km - approximately 1 hour 20 minutes by car" data-de="75 km - etwa 1 Stunde 20 Minuten mit dem Auto" data-it="75 km - circa 1 ora e 20 minuti in auto" data-ro="75 km - aproximativ 1 oră 20 minute cu mașina" data-fr="75 km - environ 1 heure 20 minutes en voiture">75 km - approximately 1 hour 20 minutes by car</p>
               </div>
             </div>
             
             <div class="access-points">
-              <h4><i class="fas fa-ship"></i> Port Access</h4>
+              <h4><i class="fas fa-ship"></i> <span data-en="Port Access" data-de="Hafenzugang" data-it="Accesso Porto" data-ro="Acces Port" data-fr="Accès Port">Port Access</span></h4>
               <div class="access-item">
-                <strong>Porto Torres Port</strong>
-                <p>45 km - approximately 45 minutes by car</p>
+                <strong data-en="Porto Torres Port" data-de="Hafen Porto Torres" data-it="Porto di Porto Torres" data-ro="Portul Porto Torres" data-fr="Port de Porto Torres">Porto Torres Port</strong>
+                <p data-en="45 km - approximately 45 minutes by car" data-de="45 km - etwa 45 Minuten mit dem Auto" data-it="45 km - circa 45 minuti in auto" data-ro="45 km - aproximativ 45 minute cu mașina" data-fr="45 km - environ 45 minutes en voiture">45 km - approximately 45 minutes by car</p>
               </div>
               <div class="access-item">
-                <strong>Olbia Port</strong>
-                <p>83 km - approximately 1 hour 27 minutes by car</p>
+                <strong data-en="Olbia Port" data-de="Hafen Olbia" data-it="Porto di Olbia" data-ro="Portul Olbia" data-fr="Port d'Olbia">Olbia Port</strong>
+                <p data-en="83 km - approximately 1 hour 27 minutes by car" data-de="83 km - etwa 1 Stunde 27 Minuten mit dem Auto" data-it="83 km - circa 1 ora e 27 minuti in auto" data-ro="83 km - aproximativ 1 oră 27 minute cu mașina" data-fr="83 km - environ 1 heure 27 minutes en voiture">83 km - approximately 1 hour 27 minutes by car</p>
               </div>
             </div>
             
@@ -1458,69 +1469,69 @@
         <div class="amenities-compact">
           <!-- Most Appealing Features First -->
           <div class="amenity-category">
-            <h3><i class="fas fa-star"></i> Premium Features</h3>
+            <h3><i class="fas fa-star"></i> <span data-en="Premium Features" data-de="Premium-Features" data-it="Caratteristiche Premium" data-ro="Caracteristici Premium" data-fr="Caractéristiques Premium">Premium Features</span></h3>
             <div class="amenities-grid">
               <div class="amenity">
                 <i class="fas fa-umbrella-beach"></i>
-                <h4>Spacious Terrace</h4>
-                <p>Around 12sqm with mountain views</p>
+                <h4 data-en="Spacious Terrace" data-de="Geräumige Terrasse" data-it="Terrazza Spaziosa" data-ro="Terasă Spațioasă" data-fr="Terrasse Spacieuse">Spacious Terrace</h4>
+                <p data-en="Around 12sqm with mountain views" data-de="Etwa 12qm mit Bergblick" data-it="Circa 12mq con vista montagna" data-ro="Aproximativ 12mp cu vedere la munți" data-fr="Environ 12m² avec vue sur la montagne">Around 12sqm with mountain views</p>
               </div>
               <div class="amenity">
                 <i class="fas fa-coffee"></i>
-                <h4>Italian Coffee</h4>
-                <p>Premium coffee included</p>
+                <h4 data-en="Italian Coffee" data-de="Italienischer Kaffee" data-it="Caffè Italiano" data-ro="Cafea Italiană" data-fr="Café Italien">Italian Coffee</h4>
+                <p data-en="Premium coffee included" data-de="Premium-Kaffee inklusive" data-it="Caffè premium incluso" data-ro="Cafea premium inclusă" data-fr="Café premium inclus">Premium coffee included</p>
               </div>
               <div class="amenity">
                 <i class="fas fa-utensils"></i>
-                <h4>Italian Breakfast</h4>
-                <p>Coffee & croissants included</p>
+                <h4 data-en="Italian Breakfast" data-de="Italienisches Frühstück" data-it="Colazione Italiana" data-ro="Mic Dejun Italian" data-fr="Petit-Déjeuner Italien">Italian Breakfast</h4>
+                <p data-en="Coffee & croissants included" data-de="Kaffee & Croissants inklusive" data-it="Caffè e croissant inclusi" data-ro="Cafea și croissante incluse" data-fr="Café et croissants inclus">Coffee & croissants included</p>
               </div>
               <div class="amenity">
                 <i class="fas fa-snowflake"></i>
-                <h4>Air Conditioning</h4>
-                <p>Climate control</p>
+                <h4 data-en="Air Conditioning" data-de="Klimaanlage" data-it="Aria Condizionata" data-ro="Aer Condiționat" data-fr="Climatisation">Air Conditioning</h4>
+                <p data-en="Climate control" data-de="Klimakontrolle" data-it="Controllo del clima" data-ro="Controlul climatului" data-fr="Contrôle du climat">Climate control</p>
               </div>
               <div class="amenity">
                 <i class="fas fa-wifi"></i>
-                <h4>Free WiFi</h4>
-                <p>High-speed internet</p>
+                <h4 data-en="Free WiFi" data-de="Kostenloses WiFi" data-it="WiFi Gratuito" data-ro="WiFi Gratuit" data-fr="WiFi Gratuit">Free WiFi</h4>
+                <p data-en="High-speed internet" data-de="Hochgeschwindigkeits-Internet" data-it="Internet ad alta velocità" data-ro="Internet de mare viteză" data-fr="Internet haut débit">High-speed internet</p>
               </div>
               <div class="amenity">
                 <i class="fas fa-car"></i>
-                <h4>Free Parking</h4>
-                <p>On-site parking</p>
+                <h4 data-en="Free Parking" data-de="Kostenloses Parken" data-it="Parcheggio Gratuito" data-ro="Parcare Gratuit" data-fr="Parking Gratuit">Free Parking</h4>
+                <p data-en="On-site parking" data-de="Parken vor Ort" data-it="Parcheggio in loco" data-ro="Parcare pe loc" data-fr="Parking sur place">On-site parking</p>
               </div>
             </div>
           </div>
 
           <!-- Kitchen & Dining -->
           <div class="amenity-category">
-            <h3><i class="fas fa-utensils"></i> Kitchen & Dining</h3>
+            <h3><i class="fas fa-utensils"></i> <span data-en="Kitchen & Dining" data-de="Küche & Essen" data-it="Cucina & Pranzo" data-ro="Bucătărie & Mese" data-fr="Cuisine & Repas">Kitchen & Dining</span></h3>
             <div class="amenities-grid">
               <div class="amenity">
                 <i class="fas fa-utensils"></i>
-                <h4>Fully Equipped Kitchen</h4>
-                <p>Cook your own meals</p>
+                <h4 data-en="Fully Equipped Kitchen" data-de="Vollausgestattete Küche" data-it="Cucina Completamente Attrezzata" data-ro="Bucătărie Complet Echipată" data-fr="Cuisine Entièrement Équipée">Fully Equipped Kitchen</h4>
+                <p data-en="Cook your own meals" data-de="Kochen Sie Ihre eigenen Mahlzeiten" data-it="Cucina i tuoi pasti" data-ro="Gătește-ți propriile mese" data-fr="Cuisinez vos propres repas">Cook your own meals</p>
               </div>
               <div class="amenity">
                 <i class="fas fa-snowflake"></i>
-                <h4>Refrigerator</h4>
+                <h4 data-en="Refrigerator" data-de="Kühlschrank" data-it="Frigorifero" data-ro="Frigider" data-fr="Réfrigérateur">Refrigerator</h4>
               </div>
               <div class="amenity">
                 <i class="fas fa-microphone"></i>
-                <h4>Microwave</h4>
+                <h4 data-en="Microwave" data-de="Mikrowelle" data-it="Microonde" data-ro="Cuptor cu Microunde" data-fr="Micro-ondes">Microwave</h4>
               </div>
               <div class="amenity">
                 <i class="fas fa-fire"></i>
-                <h4>Stove & Oven</h4>
+                <h4 data-en="Stove & Oven" data-de="Herd & Backofen" data-it="Fornello & Forno" data-ro="Aragaz & Cuptor" data-fr="Cuisinière & Four">Stove & Oven</h4>
               </div>
               <div class="amenity">
                 <i class="fas fa-coffee"></i>
-                <h4>Coffee Maker</h4>
+                <h4 data-en="Coffee Maker" data-de="Kaffeemaschine" data-it="Macchina del Caffè" data-ro="Aparat de Cafea" data-fr="Machine à Café">Coffee Maker</h4>
               </div>
               <div class="amenity">
                 <i class="fas fa-utensils"></i>
-                <h4>Dishes & Silverware</h4>
+                <h4 data-en="Dishes & Silverware" data-de="Geschirr & Besteck" data-it="Piatti & Posate" data-ro="Vase & Tacâmuri" data-fr="Vaisselle & Couverts">Dishes & Silverware</h4>
               </div>
             </div>
           </div>
@@ -1603,8 +1614,8 @@
     <section id="gallery" class="gallery">
       <div class="container">
         <div class="section-header">
-          <h2>Photo Gallery</h2>
-          <p class="section-subtitle">Discover the beauty of your Sardinian retreat</p>
+          <h2 data-en="Photo Gallery" data-de="Fotogalerie" data-it="Galleria Fotografica" data-ro="Galerie Foto" data-fr="Galerie Photo">Photo Gallery</h2>
+          <p class="section-subtitle" data-en="Discover the beauty of your Sardinian retreat" data-de="Entdecken Sie die Schönheit Ihres sardischen Rückzugsorts" data-it="Scopri la bellezza del tuo rifugio sardo" data-ro="Descoperă frumusețea retragerii tale din Sardinia" data-fr="Découvrez la beauté de votre retraite sarde">Discover the beauty of your Sardinian retreat</p>
         </div>
         <div class="gallery-grid" id="gallery-grid">
           <!-- Images will be loaded by JavaScript -->
@@ -1621,15 +1632,15 @@
         </div>
         <div class="location-content">
           <div class="location-text">
-            <h3>Badesi, Sardinia</h3>
-            <p>
+            <h3 data-en="Badesi, Sardinia" data-de="Badesi, Sardinien" data-it="Badesi, Sardegna" data-ro="Badesi, Sardinia" data-fr="Badesi, Sardaigne">Badesi, Sardinia</h3>
+            <p data-en="Located in the heart of Northern Sardinia, Badesi offers the perfect combination of pristine beaches, authentic Italian culture, and modern conveniences. Our residence is strategically positioned to give you easy access to all the region has to offer." data-de="Im Herzen Nord-Sardiniens gelegen, bietet Badesi die perfekte Kombination aus unberührten Stränden, authentischer italienischer Kultur und modernen Annehmlichkeiten. Unsere Residenz ist strategisch positioniert, um Ihnen einfachen Zugang zu allem zu bieten, was die Region zu bieten hat." data-it="Situato nel cuore della Sardegna settentrionale, Badesi offre la perfetta combinazione di spiagge incontaminate, cultura italiana autentica e comodità moderne. La nostra residenza è strategicamente posizionata per darvi facile accesso a tutto ciò che la regione ha da offrire." data-ro="Situat în inima Sardiniei de Nord, Badesi oferă combinația perfectă de plaje pristin, cultură italiană autentică și conveniențe moderne. Reședința noastră este poziționată strategic pentru a vă oferi acces ușor la tot ce are de oferit regiunea." data-fr="Situé au cœur de la Sardaigne du Nord, Badesi offre la combinaison parfaite de plages immaculées, de culture italienne authentique et de commodités modernes. Notre résidence est stratégiquement positionnée pour vous donner un accès facile à tout ce que la région a à offrir.">
               Located in the heart of Northern Sardinia, Badesi offers the perfect 
               combination of pristine beaches, authentic Italian culture, and modern 
               conveniences. Our residence is strategically positioned to give you 
               easy access to all the region has to offer.
             </p>
             <div class="nearby-attractions">
-              <h4><i class="fas fa-star"></i> Discover the Magic of North Sardinia</h4>
+              <h4><i class="fas fa-star"></i> <span data-en="Discover the Magic of North Sardinia" data-de="Entdecken Sie die Magie Nord-Sardiniens" data-it="Scopri la Magia della Sardegna Settentrionale" data-ro="Descoperă Magia Sardiniei de Nord" data-fr="Découvrez la Magie de la Sardaigne du Nord">Discover the Magic of North Sardinia</span></h4>
               <div class="attraction-item">
                 <i class="fas fa-umbrella-beach"></i>
                 <span><strong>Li Junchi Beach</strong> - Crystal clear waters just 5 minutes away</span>
@@ -1892,19 +1903,39 @@
           const languageSelect = document.getElementById('language-select');
           
           if (languageSelect) {
+            // Check URL for language parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            const pathLang = window.location.pathname.split('/')[1];
+            
+            // Priority: URL param > path > saved preference > default
+            let initialLanguage = 'en';
+            if (urlLang && ['en', 'de', 'it', 'ro', 'fr'].includes(urlLang)) {
+              initialLanguage = urlLang;
+            } else if (pathLang && ['en', 'de', 'it', 'ro', 'fr'].includes(pathLang)) {
+              initialLanguage = pathLang;
+            } else {
+              const savedLanguage = localStorage.getItem('selectedLanguage');
+              if (savedLanguage) {
+                initialLanguage = savedLanguage;
+              }
+            }
+            
+            // Set initial language
+            languageSelect.value = initialLanguage;
+            translatePage(initialLanguage);
+            
             languageSelect.addEventListener('change', (e) => {
               const selectedLanguage = e.target.value;
               console.log('Language changed to:', selectedLanguage);
               localStorage.setItem('selectedLanguage', selectedLanguage);
               translatePage(selectedLanguage);
+              
+              // Update URL without page reload
+              const newUrl = new URL(window.location);
+              newUrl.searchParams.set('lang', selectedLanguage);
+              window.history.pushState({}, '', newUrl);
             });
-            
-            // Load saved language
-            const savedLanguage = localStorage.getItem('selectedLanguage');
-            if (savedLanguage) {
-              languageSelect.value = savedLanguage;
-              translatePage(savedLanguage);
-            }
           }
         }
         
