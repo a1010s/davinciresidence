@@ -337,6 +337,190 @@
         background: linear-gradient(135deg, #f9fafb 0%, #eff6ff 100%);
       }
       
+      /* Apartment Details Section */
+      .apartment-details {
+        background: white;
+        position: relative;
+      }
+      
+      .apartment-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+      
+      .apartment-features,
+      .location-access {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        padding: 40px;
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .apartment-features h3,
+      .location-access h3 {
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: #1d4ed8;
+        margin-bottom: 32px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      .apartment-features h3 i,
+      .location-access h3 i {
+        font-size: 20px;
+        color: #f59e0b;
+      }
+      
+      .features-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 16px;
+        border: 1px solid rgba(37, 99, 235, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .feature-item:hover {
+        transform: translateX(8px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-color: rgba(37, 99, 235, 0.2);
+      }
+      
+      .feature-item i {
+        font-size: 24px;
+        color: #2563eb;
+        margin-top: 4px;
+        flex-shrink: 0;
+      }
+      
+      .feature-content h4 {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #111827;
+        margin-bottom: 4px;
+      }
+      
+      .feature-content p {
+        font-size: 14px;
+        color: #6b7280;
+        margin: 0;
+        line-height: 1.5;
+      }
+      
+      .access-points {
+        margin-bottom: 32px;
+      }
+      
+      .access-points h4 {
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #1d4ed8;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .access-points h4 i {
+        font-size: 16px;
+        color: #f59e0b;
+      }
+      
+      .access-item {
+        background: rgba(255, 255, 255, 0.6);
+        padding: 16px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        border: 1px solid rgba(37, 99, 235, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .access-item:hover {
+        transform: translateX(4px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+      
+      .access-item strong {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #111827;
+        display: block;
+        margin-bottom: 4px;
+      }
+      
+      .access-item p {
+        font-size: 13px;
+        color: #6b7280;
+        margin: 0;
+      }
+      
+      .nearby-attractions h4 {
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        color: #1d4ed8;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .nearby-attractions h4 i {
+        font-size: 16px;
+        color: #f59e0b;
+      }
+      
+      .attraction-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 12px;
+        margin-bottom: 8px;
+        border: 1px solid rgba(245, 158, 11, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .attraction-item:hover {
+        transform: translateX(4px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        border-color: rgba(245, 158, 11, 0.2);
+      }
+      
+      .attraction-item i {
+        font-size: 16px;
+        color: #f59e0b;
+        flex-shrink: 0;
+      }
+      
+      .attraction-item span {
+        font-size: 14px;
+        color: #374151;
+        font-weight: 500;
+      }
+      
       .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -891,6 +1075,16 @@
           max-width: 300px;
         }
 
+        .apartment-layout {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        
+        .apartment-features,
+        .location-access {
+          padding: 24px;
+        }
+        
         .features-grid,
         .amenities-grid,
         .testimonials-grid {
@@ -954,6 +1148,9 @@
             <a href="#about" class="nav-link">About</a>
           </li>
           <li class="nav-item">
+            <a href="#apartment" class="nav-link">Apartment</a>
+          </li>
+          <li class="nav-item">
             <a href="#amenities" class="nav-link">Amenities</a>
           </li>
           <li class="nav-item">
@@ -1002,7 +1199,7 @@
     <section id="about" class="about">
       <div class="container">
         <div class="section-header">
-          <h2>Welcome to Casa Da Vinci</h2>
+      <h2>Welcome to Casa Da Vinci</h2>
           <p class="section-subtitle">Where Italian elegance meets Mediterranean paradise</p>
         </div>
         <div class="about-content">
@@ -1032,6 +1229,130 @@
                 <i class="fas fa-car"></i>
                 <h4>Free Parking</h4>
                 <p>Convenient on-site parking for your rental car</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apartment Details Section -->
+    <section id="apartment" class="apartment-details">
+      <div class="container">
+        <div class="section-header">
+          <h2>Apartment Features</h2>
+          <p class="section-subtitle">Your perfect home away from home in Sardinia</p>
+        </div>
+        
+        <div class="apartment-layout">
+          <!-- Left Column - Apartment Features -->
+          <div class="apartment-features">
+            <h3><i class="fas fa-home"></i> Apartment Features</h3>
+            <div class="features-list">
+              <div class="feature-item">
+                <i class="fas fa-bed"></i>
+                <div class="feature-content">
+                  <h4>Spacious Bedroom</h4>
+                  <p>1 comfortable double bed for a perfect night's rest</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-shower"></i>
+                <div class="feature-content">
+                  <h4>Modern Bathroom</h4>
+                  <p>Fully equipped with all modern amenities</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-couch"></i>
+                <div class="feature-content">
+                  <h4>Bright Living Area</h4>
+                  <p>Spacious and well-lit living space for relaxation</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-snowflake"></i>
+                <div class="feature-content">
+                  <h4>Air Conditioning</h4>
+                  <p>Stay cool even during the warmest months</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-wifi"></i>
+                <div class="feature-content">
+                  <h4>Free WiFi</h4>
+                  <p>High-speed internet throughout the apartment</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-utensils"></i>
+                <div class="feature-content">
+                  <h4>Fully Equipped Kitchen</h4>
+                  <p>Everything you need to prepare your own meals</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-umbrella-beach"></i>
+                <div class="feature-content">
+                  <h4>Private Terrace</h4>
+                  <p>Breathtaking sea views - perfect for sunset dining</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-car"></i>
+                <div class="feature-content">
+                  <h4>Private Parking</h4>
+                  <p>Convenient on-site parking for your vehicle</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Column - Location & Access -->
+          <div class="location-access">
+            <h3><i class="fas fa-map-marker-alt"></i> Perfect Location</h3>
+            
+            <div class="access-points">
+              <h4><i class="fas fa-plane"></i> Airport Access</h4>
+              <div class="access-item">
+                <strong>Olbia-Costa Smeralda Airport (OLB)</strong>
+                <p>83 km - approximately 1 hour 27 minutes by car</p>
+              </div>
+              <div class="access-item">
+                <strong>Alghero-Fertilia Airport (AHO)</strong>
+                <p>75 km - approximately 1 hour 20 minutes by car</p>
+              </div>
+            </div>
+            
+            <div class="access-points">
+              <h4><i class="fas fa-ship"></i> Port Access</h4>
+              <div class="access-item">
+                <strong>Porto Torres Port</strong>
+                <p>45 km - approximately 45 minutes by car</p>
+              </div>
+              <div class="access-item">
+                <strong>Olbia Port</strong>
+                <p>83 km - approximately 1 hour 27 minutes by car</p>
+              </div>
+            </div>
+            
+            <div class="nearby-attractions">
+              <h4><i class="fas fa-star"></i> Nearby Attractions</h4>
+              <div class="attraction-item">
+                <i class="fas fa-umbrella-beach"></i>
+                <span>Li Junchi Beach - just 5 minutes away</span>
+              </div>
+              <div class="attraction-item">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Shops, restaurants & local cafes within walking distance</span>
+              </div>
+              <div class="attraction-item">
+                <i class="fas fa-hiking"></i>
+                <span>Nature trails and spectacular beaches nearby</span>
+              </div>
+              <div class="attraction-item">
+                <i class="fas fa-monument"></i>
+                <span>Historic sites and cultural attractions</span>
               </div>
             </div>
           </div>
