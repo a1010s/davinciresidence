@@ -1830,16 +1830,97 @@
       </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="./js/script.js"></script>
     <script>
       // Fallback test to see if any JavaScript is working
       console.log('HTML script tag executed');
       if (typeof window.scriptLoaded === 'undefined') {
-        console.error('JavaScript file not loaded! script.js is missing or has errors');
-        // Show visible error on page
-        document.body.insertAdjacentHTML('afterbegin', 
-          '<div style="position:fixed;top:0;left:0;right:0;background:red;color:white;padding:10px;z-index:9999;text-align:center;">⚠️ JavaScript Error: script.js not loading!</div>'
-        );
+        console.error('JavaScript file not loaded! Using inline fallback...');
+        
+        // INLINE FALLBACK JAVASCRIPT
+        console.log('Loading inline JavaScript fallback...');
+        
+        // Basic language translation function
+        function translatePage(language) {
+          console.log('Inline translatePage called with:', language);
+          
+          // Update navigation links
+          const navLinks = document.querySelectorAll('.nav-link');
+          navLinks.forEach(link => {
+            const text = link.getAttribute(`data-${language}`);
+            if (text) {
+              link.textContent = text;
+              console.log('Translated nav link:', text);
+            }
+          });
+          
+          // Update all elements with translation data attributes
+          const translatableElements = document.querySelectorAll('[data-en]');
+          console.log('Found', translatableElements.length, 'translatable elements');
+          
+          translatableElements.forEach(element => {
+            const text = element.getAttribute(`data-${language}`);
+            if (text) {
+              const btnText = element.querySelector('.btn-text');
+              if (btnText) {
+                btnText.textContent = text;
+              } else {
+                element.textContent = text;
+              }
+              console.log('Translated element:', text);
+            }
+          });
+        }
+        
+        // Basic hamburger menu function
+        function initHamburger() {
+          const hamburger = document.getElementById('hamburger');
+          const navMenu = document.getElementById('nav-menu');
+          
+          if (hamburger && navMenu) {
+            hamburger.addEventListener('click', (e) => {
+              e.preventDefault();
+              hamburger.classList.toggle('active');
+              navMenu.classList.toggle('active');
+              document.body.classList.toggle('menu-open');
+            });
+          }
+        }
+        
+        // Basic language selector function
+        function initLanguageSelector() {
+          const languageSelect = document.getElementById('language-select');
+          
+          if (languageSelect) {
+            languageSelect.addEventListener('change', (e) => {
+              const selectedLanguage = e.target.value;
+              console.log('Language changed to:', selectedLanguage);
+              localStorage.setItem('selectedLanguage', selectedLanguage);
+              translatePage(selectedLanguage);
+            });
+            
+            // Load saved language
+            const savedLanguage = localStorage.getItem('selectedLanguage');
+            if (savedLanguage) {
+              languageSelect.value = savedLanguage;
+              translatePage(savedLanguage);
+            }
+          }
+        }
+        
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+          console.log('Initializing inline JavaScript...');
+          initHamburger();
+          initLanguageSelector();
+          console.log('Inline JavaScript initialized!');
+        });
+        
+        // Set global flag
+        window.scriptLoaded = true;
+        window.translatePage = translatePage;
+        
+        console.log('Inline JavaScript fallback loaded successfully!');
       } else {
         console.log('JavaScript file loaded successfully');
       }
