@@ -720,7 +720,8 @@
         color: #111827;
         margin-bottom: 12px;
         font-size: 20px;
-        font-family: 'Playfair Display', serif;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
         position: relative;
         z-index: 1;
       }
@@ -1301,14 +1302,39 @@
           transform: translateY(-7px) rotate(-45deg);
         }
 
+        .hero {
+          padding: 120px 20px 80px;
+          min-height: 100vh;
+        }
+        
+        .hero-title {
+          font-size: clamp(28px, 8vw, 48px);
+          margin-bottom: 16px;
+        }
+        
+        .hero-subtitle {
+          font-size: clamp(16px, 4vw, 24px);
+          margin-bottom: 20px;
+        }
+        
+        .hero-description {
+          font-size: clamp(14px, 3vw, 18px);
+          line-height: 1.6;
+          margin-bottom: 32px;
+          padding: 0 10px;
+        }
+
         .hero-buttons {
           flex-direction: column;
           align-items: center;
+          gap: 12px;
         }
 
         .btn {
           width: 100%;
           max-width: 300px;
+          font-size: 16px;
+          padding: 14px 24px;
         }
 
         .apartment-layout {
@@ -1339,6 +1365,41 @@
         .amenities-grid,
         .testimonials-grid {
           grid-template-columns: 1fr;
+        }
+        
+        .section-header h2 {
+          font-size: clamp(28px, 6vw, 42px);
+          margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+          font-size: clamp(14px, 3vw, 18px);
+          margin-bottom: 32px;
+        }
+        
+        .feature {
+          padding: 20px;
+          text-align: center;
+        }
+        
+        .feature h4 {
+          font-size: 18px;
+          margin-bottom: 8px;
+        }
+        
+        .feature p {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+        
+        .contact-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .contact-buttons .btn {
+          width: 100%;
+          max-width: 280px;
         }
 
         .gallery-grid {
@@ -1372,6 +1433,43 @@
       .animate-on-scroll.animated {
         opacity: 1;
         transform: translateY(0);
+      }
+      
+      /* Modern enhancements */
+      .feature {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .feature:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      
+      .amenity {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .amenity:hover {
+        transform: translateY(-4px);
+        background: rgba(255, 255, 255, 0.95);
+      }
+      
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Modern focus states */
+      .btn:focus,
+      .nav-link:focus {
+        outline: 2px solid #2563eb;
+        outline-offset: 2px;
+      }
+      
+      /* Improved text selection */
+      ::selection {
+        background: rgba(37, 99, 235, 0.2);
+        color: #1e293b;
       }
     </style>
   </head>
@@ -1487,8 +1585,8 @@
               </div>
               <div class="feature">
                 <i class="fas fa-car"></i>
-                <h4 data-en="Free Parking" data-de="Kostenloses Parken" data-it="Parcheggio Gratuito" data-ro="Parcare Gratuit" data-fr="Parking Gratuit">Free Parking</h4>
-                <p data-en="Convenient on-site parking for your rental car" data-de="Bequemes Parken vor Ort für Ihr Mietauto" data-it="Parcheggio conveniente in loco per la tua auto a noleggio" data-ro="Parcare convenabilă pe loc pentru mașina ta de închiriat" data-fr="Parking pratique sur place pour votre voiture de location">Convenient on-site parking for your rental car</p>
+                <h4 data-en="Private Parking On-site" data-de="Privates Parken vor Ort" data-it="Parcheggio Privato in Locale" data-ro="Parcare Privată pe Loc" data-fr="Parking Privé sur Place">Private Parking On-site</h4>
+                <p data-en="Use your car or rental car - convenient on-site parking" data-de="Nutzen Sie Ihr Auto oder Mietauto - bequemes Parken vor Ort" data-it="Usa la tua auto o auto a noleggio - parcheggio conveniente in loco" data-ro="Folosește-ți mașina sau mașina de închiriat - parcare convenabilă pe loc" data-fr="Utilisez votre voiture ou voiture de location - parking pratique sur place">Use your car or rental car - convenient on-site parking</p>
               </div>
             </div>
           </div>
@@ -1667,8 +1765,8 @@
               </div>
               <div class="amenity">
                 <i class="fas fa-car"></i>
-                <h4 data-en="Free Parking" data-de="Kostenloses Parken" data-it="Parcheggio Gratuito" data-ro="Parcare Gratuit" data-fr="Parking Gratuit">Free Parking</h4>
-                <p data-en="On-site parking" data-de="Parken vor Ort" data-it="Parcheggio in loco" data-ro="Parcare pe loc" data-fr="Parking sur place">On-site parking</p>
+                <h4 data-en="Private Parking On-site" data-de="Privates Parken vor Ort" data-it="Parcheggio Privato in Locale" data-ro="Parcare Privată pe Loc" data-fr="Parking Privé sur Place">Private Parking On-site</h4>
+                <p data-en="Use your car or rental car" data-de="Nutzen Sie Ihr Auto oder Mietauto" data-it="Usa la tua auto o auto a noleggio" data-ro="Folosește-ți mașina sau mașina de închiriat" data-fr="Utilisez votre voiture ou voiture de location">Use your car or rental car</p>
               </div>
             </div>
           </div>
