@@ -26,6 +26,20 @@
         color: #1f2937;
         background-color: #ffffff;
         overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      /* Performance optimizations */
+      * {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+      
+      .amenities-compact,
+      .amenity-category,
+      .amenities-grid {
+        contain: layout style paint;
       }
       
       .navbar {
@@ -34,13 +48,15 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         height: 80px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.1);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+        transform: translateZ(0);
       }
       
       .navbar.scrolled {
@@ -345,16 +361,39 @@
       }
       
       .btn-secondary {
-        background: rgba(255, 255, 255, 0.1);
+        background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
         color: white;
-        border: 2px solid rgba(255, 255, 255, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(10px);
+        box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1);
       }
       
       .btn-secondary:hover {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.5);
+        background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+        border-color: rgba(255, 255, 255, 0.4);
         transform: translateY(-3px);
+        box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2);
+      }
+      
+      .contact-buttons {
+        display: flex;
+        gap: 16px;
+        margin-top: 24px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .contact-buttons .btn {
+        flex: 1;
+        min-width: 200px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
       }
       
       .container {
@@ -700,13 +739,15 @@
       }
       
       .amenity-category {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         padding: 24px;
         border-radius: 20px;
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.2);
+        will-change: transform;
+        transform: translateZ(0);
       }
       
       .amenity-category h3 {

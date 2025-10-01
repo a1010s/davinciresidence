@@ -151,15 +151,21 @@ function initNavigation() {
         });
     }
 
-    // Navbar scroll effect
+    // Navbar scroll effect - optimized with throttling
     if (navbar) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+        let navbarScrollTimeout;
+        const handleNavbarScroll = () => {
+            if (navbarScrollTimeout) return;
+            navbarScrollTimeout = requestAnimationFrame(() => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                navbarScrollTimeout = null;
+            });
+        };
+        window.addEventListener('scroll', handleNavbarScroll, { passive: true });
     }
 
     // Smooth scrolling for navigation links
@@ -182,16 +188,22 @@ function initNavigation() {
 
 // Scroll effects
 function initScrollEffects() {
-    // Scroll indicator fade out
+    // Scroll indicator fade out - optimized
     const scrollIndicator = document.querySelector('.scroll-indicator');
     if (scrollIndicator) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                scrollIndicator.style.opacity = '0';
-            } else {
-                scrollIndicator.style.opacity = '1';
-            }
-        });
+        let indicatorScrollTimeout;
+        const handleIndicatorScroll = () => {
+            if (indicatorScrollTimeout) return;
+            indicatorScrollTimeout = requestAnimationFrame(() => {
+                if (window.scrollY > 100) {
+                    scrollIndicator.style.opacity = '0';
+                } else {
+                    scrollIndicator.style.opacity = '1';
+                }
+                indicatorScrollTimeout = null;
+            });
+        };
+        window.addEventListener('scroll', handleIndicatorScroll, { passive: true });
     }
 }
 
@@ -332,15 +344,18 @@ function initContactForm() {
     contactButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             if (button.href && button.href.includes('mailto:')) {
-                // Add loading state
+                // Don't prevent default for mailto links - let them open the mail client
+                // Just add a brief visual feedback
                 const originalText = button.innerHTML;
-                button.innerHTML = '<span style="display: inline-block; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: white; animation: spin 1s linear infinite;"></span> Opening email...';
-                button.style.pointerEvents = 'none';
+                button.innerHTML = '<i class="fas fa-envelope"></i> Opening email...';
                 
+                // Reset after a short delay
                 setTimeout(() => {
                     button.innerHTML = originalText;
-                    button.style.pointerEvents = 'auto';
-                }, 2000);
+                }, 1000);
+                
+                // Don't prevent the default mailto behavior
+                return true;
             }
         });
     });
@@ -351,34 +366,28 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-// Parallax effects
+// Parallax effects - optimized for better performance
 function initParallax() {
     const parallaxElements = document.querySelectorAll('.hero');
     
     if (parallaxElements.length === 0) return;
     
+    let parallaxTimeout;
     const handleParallax = () => {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        
-        parallaxElements.forEach(element => {
-            element.style.transform = `translateY(${rate}px)`;
+        if (parallaxTimeout) return;
+        parallaxTimeout = requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.3; // Reduced intensity for better performance
+            
+            parallaxElements.forEach(element => {
+                element.style.transform = `translate3d(0, ${rate}px, 0)`;
+            });
+            parallaxTimeout = null;
         });
     };
     
-    // Use requestAnimationFrame for smooth performance
-    let ticking = false;
-    const updateParallax = () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                handleParallax();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    };
-    
-    window.addEventListener('scroll', updateParallax, { passive: true });
+    // Throttle parallax updates
+    window.addEventListener('scroll', handleParallax, { passive: true });
 }
 
 // Counter animations
@@ -459,18 +468,8 @@ function initPerformanceOptimizations() {
         document.head.appendChild(linkElement);
     });
     
-    // Optimize scroll events
-    let scrollTimeout;
-    const optimizedScrollHandler = () => {
-        if (scrollTimeout) {
-            clearTimeout(scrollTimeout);
-        }
-        scrollTimeout = setTimeout(() => {
-            // Handle scroll-dependent operations here
-        }, 16); // ~60fps
-    };
-    
-    window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
+    // Optimize scroll events - removed duplicate handler
+    // Individual scroll handlers are now optimized with requestAnimationFrame
     
     // Add touch support detection
     if ('ontouchstart' in window) {
@@ -541,10 +540,10 @@ function initErrorHandling() {
 // Initialize error handling
 initErrorHandling();
 
-// Enhanced scroll handler with throttling
+// Enhanced scroll handler with throttling - optimized
 const throttledScrollHandler = throttle(() => {
     revealOnScroll();
-}, 100);
+}, 200); // Increased throttle time for better performance
 
 window.addEventListener('scroll', throttledScrollHandler, { passive: true });
 
