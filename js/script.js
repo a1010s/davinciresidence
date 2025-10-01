@@ -1,7 +1,55 @@
 // Ultra-Modern JavaScript for Leonardo da Vinci Residence Website
 // Optimized for Cloudflare Pages
 
+console.log('Script.js loaded successfully!');
+
+// Global test functions available immediately
+window.testJS = function() {
+    console.log('JavaScript is working!');
+    console.log('Language selector element:', document.getElementById('language-select'));
+    console.log('Nav menu element:', document.getElementById('nav-menu'));
+    return 'JavaScript test successful!';
+};
+
+window.testTranslation = function(language) {
+    console.log('Manual translation test to:', language);
+    if (typeof translatePage === 'function') {
+        translatePage(language);
+    } else {
+        console.log('translatePage function not available yet');
+    }
+};
+
+window.resetToEnglish = function() {
+    console.log('Resetting page to English...');
+    if (typeof translatePage === 'function') {
+        translatePage('en');
+    } else {
+        console.log('translatePage function not available yet');
+    }
+};
+
+window.testHamburger = function() {
+    console.log('Testing hamburger menu...');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    
+    console.log('Hamburger element:', hamburger);
+    console.log('Nav menu element:', navMenu);
+    
+    if (hamburger && navMenu) {
+        console.log('Elements found - toggling menu');
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        console.log('Menu active:', navMenu.classList.contains('active'));
+    } else {
+        console.log('Elements not found!');
+    }
+};
+
 document.addEventListener("DOMContentLoaded", function() {
+    console.log('DOM Content Loaded - Initializing website...');
+    
     // Initialize all functionality
     initNavigation();
     initScrollEffects();
@@ -16,28 +64,43 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Add loaded class for CSS animations
     document.body.classList.add('loaded');
+    
+    console.log('Website initialization complete!');
 });
 
 // Navigation functionality
 function initNavigation() {
+    console.log('Initializing navigation...');
     const navbar = document.getElementById('navbar');
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
+    console.log('Navigation elements:', {
+        navbar: navbar,
+        hamburger: hamburger,
+        navMenu: navMenu,
+        navLinks: navLinks.length
+    });
+
     // Mobile menu toggle
     if (hamburger && navMenu) {
-        console.log('Mobile menu elements found:', hamburger, navMenu);
+        console.log('Mobile menu elements found - adding event listener');
         hamburger.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             console.log('Hamburger clicked!');
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             document.body.classList.toggle('menu-open');
             console.log('Classes toggled. Active state:', navMenu.classList.contains('active'));
+            console.log('Hamburger active state:', hamburger.classList.contains('active'));
         });
     } else {
-        console.log('Mobile menu elements not found:', hamburger, navMenu);
+        console.log('Mobile menu elements not found:', {
+            hamburger: hamburger,
+            navMenu: navMenu
+        });
     }
 
     // Close mobile menu when clicking on a link
@@ -545,17 +608,6 @@ function translatePage(language) {
     });
 }
 
-// Test function for manual translation
-window.testTranslation = function(language) {
-    console.log('Manual translation test to:', language);
-    translatePage(language);
-};
-
-// Reset page to English
-window.resetToEnglish = function() {
-    console.log('Resetting page to English...');
-    translatePage('en');
-};
 
 // Export functions for potential external use
 window.DaVinciResidence = {
