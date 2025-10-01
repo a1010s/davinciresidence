@@ -26,11 +26,17 @@ function initNavigation() {
 
     // Mobile menu toggle
     if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
+        console.log('Mobile menu elements found:', hamburger, navMenu);
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Hamburger clicked!');
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             document.body.classList.toggle('menu-open');
+            console.log('Classes toggled. Active state:', navMenu.classList.contains('active'));
         });
+    } else {
+        console.log('Mobile menu elements not found:', hamburger, navMenu);
     }
 
     // Close mobile menu when clicking on a link

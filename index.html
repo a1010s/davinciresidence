@@ -1050,15 +1050,13 @@
         
         .hamburger {
           display: flex;
-        }
-
-        .hamburger {
-          display: flex;
           flex-direction: column;
           cursor: pointer;
           padding: 8px;
           border-radius: 8px;
           transition: all 0.15s ease;
+          position: relative;
+          z-index: 1001;
         }
 
         .hamburger:hover {
@@ -1235,7 +1233,7 @@
     <section id="about" class="about">
       <div class="container">
         <div class="section-header">
-      <h2>Welcome to Casa Da Vinci</h2>
+      <h2>Welcome to da Vinci Residence</h2>
           <p class="section-subtitle">Where Italian elegance meets Mediterranean paradise</p>
         </div>
         <div class="about-content">
@@ -1254,7 +1252,7 @@
               <div class="feature">
                 <i class="fas fa-bed"></i>
                 <h4>Luxury Accommodation</h4>
-                <p>Spacious 2-bedroom apartment with premium furnishings</p>
+                <p>2-room apartment (1 bedroom + 1 living room) with premium furnishings</p>
               </div>
               <div class="feature">
                 <i class="fas fa-umbrella-beach"></i>
@@ -1585,14 +1583,31 @@
               easy access to all the region has to offer.
             </p>
             <div class="nearby-attractions">
-              <h4>Nearby Attractions:</h4>
-              <ul>
-                <li><i class="fas fa-map-marker-alt"></i> Li Junchi Beach - 5 minutes</li>
-                <li><i class="fas fa-map-marker-alt"></i> Isola Rossa - 5km</li>
-                <li><i class="fas fa-map-marker-alt"></i> Castelsardo - 15km</li>
-                <li><i class="fas fa-map-marker-alt"></i> Alghero Airport - 45km</li>
-                <li><i class="fas fa-map-marker-alt"></i> Sassari - 30km</li>
-              </ul>
+              <h4><i class="fas fa-star"></i> Discover the Magic of North Sardinia</h4>
+              <div class="attraction-item">
+                <i class="fas fa-umbrella-beach"></i>
+                <span><strong>Li Junchi Beach</strong> - Crystal clear waters just 5 minutes away</span>
+              </div>
+              <div class="attraction-item">
+                <i class="fas fa-shopping-bag"></i>
+                <span><strong>Local Charm</strong> - Authentic shops, restaurants & cafes within walking distance</span>
+              </div>
+              <div class="attraction-item">
+                <i class="fas fa-hiking"></i>
+                <span><strong>Nature Adventures</strong> - Breathtaking trails and pristine beaches to explore</span>
+              </div>
+              <div class="attraction-item">
+                <i class="fas fa-monument"></i>
+                <span><strong>Rich History</strong> - Ancient sites and cultural treasures await discovery</span>
+              </div>
+              <div class="attraction-item">
+                <i class="fas fa-car"></i>
+                <span><strong>Easy Exploration</strong> - Costa Smeralda, Alghero, and Porto Torres all within 1 hour</span>
+              </div>
+              <div class="attraction-item">
+                <i class="fas fa-wine-glass"></i>
+                <span><strong>Local Delights</strong> - Taste authentic Sardinian cuisine and world-class wines</span>
+              </div>
             </div>
           </div>
           <div class="location-map">
@@ -1710,8 +1725,8 @@
             <div class="contact-item">
               <i class="fas fa-phone"></i>
               <div>
-                <strong>Phone</strong>
-                <p>+39 XXX XXX XXXX</p>
+                <strong>Phone / WhatsApp</strong>
+                <p>+49 160 644 38 38</p>
               </div>
             </div>
             <div class="contact-item">
@@ -1759,6 +1774,7 @@
           <div class="footer-section">
             <h4>Contact</h4>
             <p><i class="fas fa-map-marker-alt"></i> Badesi, Sardinia, Italy</p>
+            <p><i class="fas fa-phone"></i> +49 160 644 38 38</p>
             <p><i class="fas fa-envelope"></i> info@davinciresidence.com</p>
           </div>
         </div>
