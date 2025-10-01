@@ -47,6 +47,27 @@ window.testHamburger = function() {
     }
 };
 
+window.testLanguageSelector = function() {
+    console.log('=== TESTING LANGUAGE SELECTOR ===');
+    const languageSelect = document.getElementById('language-select');
+    console.log('Language selector element:', languageSelect);
+    
+    if (languageSelect) {
+        console.log('Current value:', languageSelect.value);
+        console.log('Available options:', Array.from(languageSelect.options).map(opt => opt.value));
+        console.log('translatePage function exists:', typeof translatePage === 'function');
+        
+        // Test manual translation
+        console.log('Testing manual translation to German...');
+        if (typeof translatePage === 'function') {
+            translatePage('de');
+        }
+    } else {
+        console.log('Language selector not found!');
+    }
+    console.log('=== END LANGUAGE SELECTOR TEST ===');
+};
+
 document.addEventListener("DOMContentLoaded", function() {
     console.log('DOM Content Loaded - Initializing website...');
     
@@ -546,40 +567,73 @@ function initLanguageSelector() {
     
     if (languageSelect) {
         console.log('Language selector found, adding event listener...');
-        languageSelect.addEventListener('change', function() {
+        
+        // Test if translatePage function exists
+        console.log('translatePage function exists:', typeof translatePage === 'function');
+        
+        languageSelect.addEventListener('change', function(e) {
             const selectedLanguage = this.value;
+            console.log('=== LANGUAGE SELECTOR EVENT ===');
             console.log('Language selector changed to:', selectedLanguage);
-            translatePage(selectedLanguage);
+            console.log('Event object:', e);
+            console.log('Select element:', this);
+            console.log('Select value:', this.value);
             
             // Store language preference
             localStorage.setItem('selectedLanguage', selectedLanguage);
+            console.log('Language saved to localStorage:', selectedLanguage);
             
-            console.log(`Language changed to: ${selectedLanguage}`);
+            // Call translatePage
+            console.log('Calling translatePage with:', selectedLanguage);
+            if (typeof translatePage === 'function') {
+                translatePage(selectedLanguage);
+                console.log('translatePage called successfully');
+            } else {
+                console.error('translatePage function not found!');
+            }
+            
+            console.log('=== END LANGUAGE SELECTOR EVENT ===');
         });
         
         // Load saved language preference
         const savedLanguage = localStorage.getItem('selectedLanguage');
+        console.log('Saved language from localStorage:', savedLanguage);
         if (savedLanguage) {
             console.log('Loading saved language:', savedLanguage);
             languageSelect.value = savedLanguage;
-            translatePage(savedLanguage);
+            if (typeof translatePage === 'function') {
+                translatePage(savedLanguage);
+                console.log('Initial translation applied');
+            }
+        } else {
+            console.log('No saved language, using default (en)');
+            if (typeof translatePage === 'function') {
+                translatePage('en');
+            }
         }
     } else {
         console.error('Language selector element not found!');
+        console.log('Available elements with "language" in ID:', 
+            document.querySelectorAll('[id*="language"]'));
     }
 }
 
 // Translate page content
 function translatePage(language) {
+    console.log(`=== TRANSLATE PAGE START ===`);
     console.log(`Translating page to: ${language}`);
     
     // Update navigation links
     const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
+    console.log(`Found ${navLinks.length} navigation links`);
+    navLinks.forEach((link, index) => {
         const text = link.getAttribute(`data-${language}`);
+        console.log(`Nav link ${index}:`, link, `data-${language}="${text}"`);
         if (text) {
             link.textContent = text;
-            console.log(`Translated nav link: ${text}`);
+            console.log(`✓ Translated nav link: ${text}`);
+        } else {
+            console.log(`✗ No translation found for nav link ${index}`);
         }
     });
     
@@ -587,25 +641,31 @@ function translatePage(language) {
     const translatableElements = document.querySelectorAll('[data-en]');
     console.log(`Found ${translatableElements.length} translatable elements`);
     
-    translatableElements.forEach(element => {
+    let translatedCount = 0;
+    translatableElements.forEach((element, index) => {
         const text = element.getAttribute(`data-${language}`);
+        console.log(`Element ${index}:`, element.tagName, element.className, `data-${language}="${text}"`);
+        
         if (text) {
-            console.log(`Processing element:`, element);
-            console.log(`Element tag: ${element.tagName}, classes: ${element.className}`);
-            
             // Handle button text specially
             const btnText = element.querySelector('.btn-text');
             if (btnText) {
                 btnText.textContent = text;
-                console.log(`Translated button text: ${text}`);
+                console.log(`✓ Translated button text: ${text}`);
             } else {
                 // For elements without special structure, just replace text content
                 // This preserves any HTML structure
                 element.textContent = text;
-                console.log(`Translated element: ${text}`);
+                console.log(`✓ Translated element: ${text}`);
             }
+            translatedCount++;
+        } else {
+            console.log(`✗ No translation found for element ${index}`);
         }
     });
+    
+    console.log(`Translation complete: ${translatedCount}/${translatableElements.length} elements translated`);
+    console.log(`=== TRANSLATE PAGE END ===`);
 }
 
 
