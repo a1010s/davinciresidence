@@ -536,13 +536,9 @@ function translatePage(language) {
                 btnText.textContent = text;
                 console.log(`Translated button text: ${text}`);
             } else {
-                // Store original HTML structure
-                const originalHTML = element.innerHTML;
-                console.log(`Original HTML: ${originalHTML}`);
-                
-                // Replace the text content while preserving HTML structure
-                // This is a more aggressive approach - replace the entire content
-                element.innerHTML = text;
+                // For elements without special structure, just replace text content
+                // This preserves any HTML structure
+                element.textContent = text;
                 console.log(`Translated element: ${text}`);
             }
         }
@@ -553,6 +549,12 @@ function translatePage(language) {
 window.testTranslation = function(language) {
     console.log('Manual translation test to:', language);
     translatePage(language);
+};
+
+// Reset page to English
+window.resetToEnglish = function() {
+    console.log('Resetting page to English...');
+    translatePage('en');
 };
 
 // Export functions for potential external use
