@@ -527,13 +527,22 @@ function translatePage(language) {
     translatableElements.forEach(element => {
         const text = element.getAttribute(`data-${language}`);
         if (text) {
+            console.log(`Processing element:`, element);
+            console.log(`Element tag: ${element.tagName}, classes: ${element.className}`);
+            
             // Handle button text specially
             const btnText = element.querySelector('.btn-text');
             if (btnText) {
                 btnText.textContent = text;
                 console.log(`Translated button text: ${text}`);
             } else {
-                element.textContent = text;
+                // Store original HTML structure
+                const originalHTML = element.innerHTML;
+                console.log(`Original HTML: ${originalHTML}`);
+                
+                // Replace the text content while preserving HTML structure
+                // This is a more aggressive approach - replace the entire content
+                element.innerHTML = text;
                 console.log(`Translated element: ${text}`);
             }
         }
