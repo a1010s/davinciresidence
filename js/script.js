@@ -2,6 +2,11 @@
 // Optimized for Cloudflare Pages
 
 console.log('Script.js loaded successfully!');
+console.log('JavaScript file is working!');
+
+// Immediate test to see if script loads
+window.scriptLoaded = true;
+console.log('Global variable set: scriptLoaded =', window.scriptLoaded);
 
 // Global test functions available immediately
 window.testJS = function() {

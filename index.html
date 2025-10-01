@@ -1831,6 +1831,19 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+      // Fallback test to see if any JavaScript is working
+      console.log('HTML script tag executed');
+      if (typeof window.scriptLoaded === 'undefined') {
+        console.error('JavaScript file not loaded! script.js is missing or has errors');
+        // Show visible error on page
+        document.body.insertAdjacentHTML('afterbegin', 
+          '<div style="position:fixed;top:0;left:0;right:0;background:red;color:white;padding:10px;z-index:9999;text-align:center;">⚠️ JavaScript Error: script.js not loading!</div>'
+        );
+      } else {
+        console.log('JavaScript file loaded successfully');
+      }
+    </script>
   </body>
 </html>
 
