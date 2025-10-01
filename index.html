@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Experience luxury at Leonardo da Vinci Residence in Badesi, Sardinia. Elegant vacation apartment with stunning Mediterranean views and modern amenities." />
+    <meta name="description" content="Experience luxury at Davinci Residence in Badesi, Sardinia. Elegant vacation apartment with stunning Mediterranean views and modern amenities." />
     <meta name="keywords" content="Sardinia vacation rental, Badesi apartment, Mediterranean beach, luxury accommodation, Italy vacation" />
-    <meta property="og:title" content="Leonardo da Vinci Residence - Luxury in Badesi, Sardinia" />
+    <meta property="og:title" content="Davinci Residence - Luxury in Badesi, Sardinia" />
     <meta property="og:description" content="Your perfect escape to the Mediterranean. Elegant apartment with beach access and stunning views." />
     <meta property="og:type" content="website" />
-    <title>Leonardo da Vinci Residence - Luxury Vacation Apartment in Badesi, Sardinia</title>
+    <title>Davinci Residence - Luxury Vacation Apartment in Badesi, Sardinia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css" />
     
@@ -36,8 +36,17 @@
         z-index: 1000;
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         height: 80px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        transform: translateY(0);
       }
       
       .nav-container {
@@ -51,11 +60,16 @@
       }
       
       .nav-logo h2 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Montserrat', sans-serif;
         color: #1d4ed8;
-        font-size: 24px;
-        font-weight: 700;
+        font-size: 28px;
+        font-weight: 800;
         margin: 0;
+        letter-spacing: -0.5px;
+        background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
       
       .nav-menu {
@@ -99,11 +113,30 @@
       }
       
       .hero-title {
-        font-size: clamp(48px, 8vw, 96px);
-        font-weight: 800;
+        font-size: clamp(52px, 9vw, 108px);
+        font-weight: 900;
         margin-bottom: 24px;
         text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        font-family: 'Playfair Display', serif;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: -2px;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 50%, #e0f2fe 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+      }
+      
+      .hero-title::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 4px;
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        border-radius: 2px;
+        opacity: 0.8;
       }
       
       .hero-subtitle {
@@ -150,11 +183,29 @@
         background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
         color: white;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: all 0.5s ease;
+      }
+      
+      .btn-primary:hover::before {
+        left: 100%;
       }
       
       .btn-primary:hover {
-        transform: translateY(-3px);
+        transform: translateY(-3px) scale(1.02);
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
       }
       
       .btn-secondary {
@@ -227,15 +278,34 @@
       }
       
       .feature {
-        background: white;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         padding: 32px;
         border-radius: 24px;
         text-align: center;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        border: 1px solid rgba(37, 99, 235, 0.1);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         position: relative;
         overflow: hidden;
+      }
+      
+      .feature::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 0;
+      }
+      
+      .feature:hover::after {
+        opacity: 1;
       }
       
       .feature::before {
@@ -249,9 +319,9 @@
       }
       
       .feature:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        border-color: #bfdbfe;
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.25);
+        border-color: rgba(37, 99, 235, 0.3);
       }
       
       .feature i {
@@ -259,6 +329,14 @@
         color: #2563eb;
         margin-bottom: 16px;
         display: block;
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease;
+      }
+      
+      .feature:hover i {
+        transform: scale(1.1) rotate(5deg);
+        color: #1d4ed8;
       }
       
       .feature h4 {
@@ -266,12 +344,16 @@
         margin-bottom: 12px;
         font-size: 20px;
         font-family: 'Playfair Display', serif;
+        position: relative;
+        z-index: 1;
       }
       
       .feature p {
         color: #6b7280;
         font-size: 16px;
         margin: 0;
+        position: relative;
+        z-index: 1;
       }
       
       .amenities-grid {
@@ -281,19 +363,40 @@
       }
       
       .amenity {
-        background: linear-gradient(135deg, white 0%, #f9fafb 100%);
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
         padding: 32px;
         border-radius: 24px;
         text-align: center;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .amenity::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(217, 119, 6, 0.05) 100%);
+        opacity: 0;
         transition: all 0.3s ease;
-        border: 1px solid #e5e7eb;
+        z-index: 0;
+      }
+      
+      .amenity:hover::before {
+        opacity: 1;
       }
       
       .amenity:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        border-color: #fbbf24;
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border-color: rgba(245, 158, 11, 0.3);
       }
       
       .amenity i {
@@ -301,6 +404,14 @@
         color: #f59e0b;
         margin-bottom: 16px;
         display: block;
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease;
+      }
+      
+      .amenity:hover i {
+        transform: scale(1.15) rotate(-5deg);
+        color: #d97706;
       }
       
       .amenity h4 {
@@ -308,12 +419,16 @@
         margin-bottom: 12px;
         font-size: 18px;
         font-family: 'Playfair Display', serif;
+        position: relative;
+        z-index: 1;
       }
       
       .amenity p {
         color: #6b7280;
         font-size: 14px;
         margin: 0;
+        position: relative;
+        z-index: 1;
       }
       
       .gallery-grid {
@@ -696,7 +811,7 @@
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div class="nav-logo">
-          <h2>Leonardo da Vinci Residence</h2>
+          <h2>Davinci Residence</h2>
         </div>
         <ul class="nav-menu" id="nav-menu">
           <li class="nav-item">
@@ -730,7 +845,7 @@
     <header id="home" class="hero">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1 class="hero-title">Leonardo da Vinci Residence</h1>
+        <h1 class="hero-title">Davinci Residence</h1>
         <p class="hero-subtitle">Your Elegant Mediterranean Escape in Badesi, Sardinia</p>
         <p class="hero-description">
           Experience the perfect blend of Italian luxury and Mediterranean charm. 
@@ -778,7 +893,7 @@
               <div class="feature">
                 <i class="fas fa-umbrella-beach"></i>
                 <h4>Beach Access</h4>
-                <p>Just 200 meters from the stunning Badesi beach</p>
+                <p>Just 5 minutes from the stunning Li Junchi Beach</p>
               </div>
               <div class="feature">
                 <i class="fas fa-car"></i>
@@ -810,14 +925,19 @@
             <p>Climate control for year-round comfort</p>
           </div>
           <div class="amenity">
-            <i class="fas fa-utensils"></i>
-            <h4>Fully Equipped Kitchen</h4>
-            <p>Modern appliances and cookware for home cooking</p>
+            <i class="fas fa-wind"></i>
+            <h4>Dehumidifier</h4>
+            <p>Optimal air quality and comfort</p>
           </div>
           <div class="amenity">
-            <i class="fas fa-swimming-pool"></i>
-            <h4>Shared Pool</h4>
-            <p>Community pool with sun loungers</p>
+            <i class="fas fa-coffee"></i>
+            <h4>Italian Coffee</h4>
+            <p>Premium Italian coffee at your disposal</p>
+          </div>
+          <div class="amenity">
+            <i class="fas fa-croissant"></i>
+            <h4>Italian Breakfast</h4>
+            <p>Included coffee and croissants</p>
           </div>
           <div class="amenity">
             <i class="fas fa-tshirt"></i>
@@ -865,7 +985,7 @@
             <div class="nearby-attractions">
               <h4>Nearby Attractions:</h4>
               <ul>
-                <li><i class="fas fa-map-marker-alt"></i> Badesi Beach - 200m</li>
+                <li><i class="fas fa-map-marker-alt"></i> Li Junchi Beach - 5 minutes</li>
                 <li><i class="fas fa-map-marker-alt"></i> Isola Rossa - 5km</li>
                 <li><i class="fas fa-map-marker-alt"></i> Castelsardo - 15km</li>
                 <li><i class="fas fa-map-marker-alt"></i> Alghero Airport - 45km</li>
@@ -987,7 +1107,7 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <h3>Leonardo da Vinci Residence</h3>
+            <h3>Davinci Residence</h3>
             <p>Your perfect Mediterranean escape in the heart of Sardinia.</p>
             <div class="social-links">
               <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
@@ -1011,7 +1131,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 Leonardo da Vinci Residence. All rights reserved.</p>
+          <p>&copy; 2025 Davinci Residence. All rights reserved.</p>
         </div>
       </div>
     </footer>
