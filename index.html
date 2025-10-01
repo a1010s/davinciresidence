@@ -59,14 +59,85 @@
         padding: 0 24px;
       }
       
-      .nav-logo h2 {
-        font-family: 'Inter', sans-serif;
-        color: #1d4ed8;
-        font-size: 20px;
+      .nav-logo {
+        display: flex;
+        align-items: center;
+      }
+      
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 16px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+      }
+      
+      .logo-container:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+        border-color: rgba(37, 99, 235, 0.3);
+      }
+      
+      .logo-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        transition: all 0.3s ease;
+      }
+      
+      .logo-container:hover .logo-icon {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+      }
+      
+      .logo-icon i {
+        color: white;
+        font-size: 18px;
         font-weight: 600;
-        margin: 0;
+      }
+      
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+      }
+      
+      .logo-main {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #1d4ed8;
         letter-spacing: 0.5px;
         text-transform: uppercase;
+        margin: 0;
+        background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .logo-sub {
+        font-family: 'Inter', sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        color: #6b7280;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin: 0;
+        margin-top: 2px;
       }
       
       .nav-menu {
@@ -352,22 +423,56 @@
         z-index: 1;
       }
       
-      .amenities-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 24px;
+      .amenities-categories {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
       }
       
-      .amenity {
+      .amenity-category {
         background: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         padding: 32px;
         border-radius: 24px;
-        text-align: center;
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .amenity-category h3 {
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: #1d4ed8;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      .amenity-category h3 i {
+        font-size: 18px;
+        color: #f59e0b;
+      }
+      
+      .amenities-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+      }
+      
+      .amenity {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
         position: relative;
         overflow: hidden;
       }
@@ -390,15 +495,15 @@
       }
       
       .amenity:hover {
-        transform: translateY(-8px) scale(1.03);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        border-color: rgba(245, 158, 11, 0.3);
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 15px 30px -8px rgba(0, 0, 0, 0.2);
+        border-color: rgba(245, 158, 11, 0.4);
       }
       
       .amenity i {
-        font-size: 40px;
+        font-size: 24px;
         color: #f59e0b;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
         display: block;
         position: relative;
         z-index: 1;
@@ -406,25 +511,27 @@
       }
       
       .amenity:hover i {
-        transform: scale(1.15) rotate(-5deg);
+        transform: scale(1.1) rotate(-3deg);
         color: #d97706;
       }
       
       .amenity h4 {
         color: #111827;
-        margin-bottom: 12px;
-        font-size: 18px;
-        font-family: 'Playfair Display', serif;
+        margin-bottom: 4px;
+        font-size: 14px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
         position: relative;
         z-index: 1;
       }
       
       .amenity p {
         color: #6b7280;
-        font-size: 14px;
+        font-size: 12px;
         margin: 0;
         position: relative;
         z-index: 1;
+        line-height: 1.4;
       }
       
       .gallery-grid {
@@ -695,6 +802,28 @@
       
       /* Mobile Responsive */
       @media (max-width: 768px) {
+        .logo-container {
+          padding: 6px 12px;
+          gap: 8px;
+        }
+        
+        .logo-icon {
+          width: 32px;
+          height: 32px;
+        }
+        
+        .logo-icon i {
+          font-size: 14px;
+        }
+        
+        .logo-main {
+          font-size: 14px;
+        }
+        
+        .logo-sub {
+          font-size: 9px;
+        }
+        
         .nav-menu {
           position: fixed;
           left: -100%;
@@ -807,7 +936,15 @@
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div class="nav-logo">
-          <h2>Davinci Residence</h2>
+          <div class="logo-container">
+            <div class="logo-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="logo-text">
+              <span class="logo-main">DAVINCI</span>
+              <span class="logo-sub">RESIDENCE</span>
+            </div>
+          </div>
         </div>
         <ul class="nav-menu" id="nav-menu">
           <li class="nav-item">
@@ -909,41 +1046,235 @@
           <h2>Premium Amenities</h2>
           <p class="section-subtitle">Everything you need for the perfect stay</p>
         </div>
-        <div class="amenities-grid">
-          <div class="amenity">
-            <i class="fas fa-wifi"></i>
-            <h4>Free WiFi</h4>
-            <p>High-speed internet throughout the property</p>
+        <div class="amenities-categories">
+          <!-- Bathroom -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-bath"></i> Bathroom</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-wind"></i>
+                <h4>Hair Dryer</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-shower"></i>
+                <h4>Bidet</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-thermometer-half"></i>
+                <h4>Hot Water</h4>
+              </div>
+            </div>
           </div>
-          <div class="amenity">
-            <i class="fas fa-snowflake"></i>
-            <h4>Air Conditioning</h4>
-            <p>Climate control for year-round comfort</p>
+
+          <!-- Bedroom & Laundry -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-bed"></i> Bedroom & Laundry</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-tshirt"></i>
+                <h4>Washing Machine</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-tshirt"></i>
+                <h4>Hangers</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-bed"></i>
+                <h4>Bed Linens</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-tshirt"></i>
+                <h4>Iron</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-tshirt"></i>
+                <h4>Clothing Storage</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-tshirt"></i>
+                <h4>Wardrobe</h4>
+              </div>
+            </div>
           </div>
-          <div class="amenity">
-            <i class="fas fa-wind"></i>
-            <h4>Dehumidifier</h4>
-            <p>Optimal air quality and comfort</p>
+
+          <!-- Entertainment -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-tv"></i> Entertainment</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-tv"></i>
+                <h4>TV</h4>
+              </div>
+            </div>
           </div>
-          <div class="amenity">
-            <i class="fas fa-coffee"></i>
-            <h4>Italian Coffee</h4>
-            <p>Premium Italian coffee at your disposal</p>
+
+          <!-- Family -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-baby"></i> Family</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-baby"></i>
+                <h4>Baby Crib</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-bed"></i>
+                <h4>Paid Travel Crib</h4>
+                <p>Available on request</p>
+              </div>
+            </div>
           </div>
-          <div class="amenity">
-            <i class="fas fa-croissant"></i>
-            <h4>Italian Breakfast</h4>
-            <p>Included coffee and croissants</p>
+
+          <!-- Heating & Cooling -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-snowflake"></i> Heating & Cooling</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-snowflake"></i>
+                <h4>Air Conditioning</h4>
+              </div>
+            </div>
           </div>
-          <div class="amenity">
-            <i class="fas fa-tshirt"></i>
-            <h4>Washing Machine</h4>
-            <p>In-unit laundry facilities</p>
+
+          <!-- Home Safety -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-shield-alt"></i> Home Safety</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h4>Carbon Monoxide Alarm</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-fire-extinguisher"></i>
+                <h4>Fire Extinguisher</h4>
+              </div>
+            </div>
           </div>
-          <div class="amenity">
-            <i class="fas fa-tv"></i>
-            <h4>Smart TV</h4>
-            <p>Entertainment system with streaming capabilities</p>
+
+          <!-- Internet & Office -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-wifi"></i> Internet & Office</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-wifi"></i>
+                <h4>WiFi</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kitchen & Dining -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-utensils"></i> Kitchen & Dining</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-utensils"></i>
+                <h4>Kitchen</h4>
+                <p>Guests can cook their own meals</p>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-snowflake"></i>
+                <h4>Refrigerator</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-microphone"></i>
+                <h4>Microwave</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-utensils"></i>
+                <h4>Dishes & Silverware</h4>
+                <p>Bowls, chopsticks, plates, cups, etc.</p>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-snowflake"></i>
+                <h4>Freezer</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-fire"></i>
+                <h4>Stove</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-fire"></i>
+                <h4>Oven</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-coffee"></i>
+                <h4>Electric Kettle</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-coffee"></i>
+                <h4>Coffee Maker</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-cookie-bite"></i>
+                <h4>Baking Sheet</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-utensils"></i>
+                <h4>Dining Table</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outdoor -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-tree"></i> Outdoor</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-home"></i>
+                <h4>Private Courtyard or Balcony</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-chair"></i>
+                <h4>Outdoor Furniture</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parking & Facilities -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-car"></i> Parking & Facilities</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-car"></i>
+                <h4>Free Parking on Premises</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Services -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-concierge-bell"></i> Services</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-key"></i>
+                <h4>Self Check-in</h4>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-key"></i>
+                <h4>Smart Lock</h4>
+              </div>
+            </div>
+          </div>
+
+          <!-- Special Amenities -->
+          <div class="amenity-category">
+            <h3><i class="fas fa-star"></i> Special Amenities</h3>
+            <div class="amenities-grid">
+              <div class="amenity">
+                <i class="fas fa-coffee"></i>
+                <h4>Italian Coffee</h4>
+                <p>Premium Italian coffee at your disposal</p>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-croissant"></i>
+                <h4>Italian Breakfast</h4>
+                <p>Included coffee and croissants</p>
+              </div>
+              <div class="amenity">
+                <i class="fas fa-wind"></i>
+                <h4>Dehumidifier</h4>
+                <p>Optimal air quality and comfort</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

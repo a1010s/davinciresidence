@@ -44,6 +44,17 @@ function initNavigation() {
         });
     });
 
+    // Logo click handler - scroll to top
+    const logoContainer = document.querySelector('.logo-container');
+    if (logoContainer) {
+        logoContainer.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
     // Navbar scroll effect
     if (navbar) {
         window.addEventListener('scroll', () => {
