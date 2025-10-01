@@ -195,7 +195,7 @@
       
       .hero {
         height: 100vh;
-        background: linear-gradient(135deg, rgba(37, 99, 235, 0.4) 0%, rgba(30, 58, 138, 0.5) 100%), url('img/terrace.jpg') center/cover no-repeat;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.55) 0%, rgba(30, 58, 138, 0.65) 100%), url('img/terrace.jpg') center/cover no-repeat;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -243,7 +243,7 @@
       }
       
       .hero-subtitle {
-        font-size: clamp(22px, 3.5vw, 36px);
+        font-size: clamp(18px, 2.8vw, 28px);
         font-weight: 600;
         margin-bottom: 28px;
         text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
@@ -252,6 +252,9 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       
       .hero-description {
@@ -1538,71 +1541,71 @@
 
           <!-- Comfort & Entertainment -->
           <div class="amenity-category">
-            <h3><i class="fas fa-couch"></i> Comfort & Entertainment</h3>
+            <h3><i class="fas fa-couch"></i> <span data-en="Comfort & Entertainment" data-de="Komfort & Unterhaltung" data-it="Comfort & Intrattenimento" data-ro="Confort & Divertisment" data-fr="Confort & Divertissement">Comfort & Entertainment</span></h3>
             <div class="amenities-grid">
               <div class="amenity">
                 <i class="fas fa-tv"></i>
-                <h4>Smart TV</h4>
+                <h4 data-en="Smart TV" data-de="Smart TV" data-it="Smart TV" data-ro="Smart TV" data-fr="Smart TV">Smart TV</h4>
               </div>
               <div class="amenity">
                 <i class="fas fa-bed"></i>
-                <h4>Comfortable Bedding</h4>
+                <h4 data-en="Comfortable Bedding" data-de="Bequeme Bettwäsche" data-it="Biancheria da Letto Comoda" data-ro="Lenjerie Confortabilă" data-fr="Literie Confortable">Comfortable Bedding</h4>
               </div>
               <div class="amenity">
                 <i class="fas fa-tshirt"></i>
-                <h4>Washing Machine</h4>
+                <h4 data-en="Washing Machine" data-de="Waschmaschine" data-it="Lavatrice" data-ro="Mașină de Spălat" data-fr="Machine à Laver">Washing Machine</h4>
               </div>
               <div class="amenity">
                 <i class="fas fa-wind"></i>
-                <h4>Dehumidifier</h4>
-                <p>Optimal air quality</p>
+                <h4 data-en="Dehumidifier" data-de="Luftentfeuchter" data-it="Deumidificatore" data-ro="Deumidificator" data-fr="Déshumidificateur">Dehumidifier</h4>
+                <p data-en="Optimal air quality" data-de="Optimale Luftqualität" data-it="Qualità dell'aria ottimale" data-ro="Calitate optimă a aerului" data-fr="Qualité d'air optimale">Optimal air quality</p>
               </div>
               <div class="amenity">
                 <i class="fas fa-tshirt"></i>
-                <h4>Iron & Wardrobe</h4>
+                <h4 data-en="Iron & Wardrobe" data-de="Bügeleisen & Kleiderschrank" data-it="Ferro da Stiro & Guardaroba" data-ro="Fier de Călcat & Dulap" data-fr="Fer à Repasser & Garde-robe">Iron & Wardrobe</h4>
               </div>
               <div class="amenity">
                 <i class="fas fa-baby"></i>
-                <h4>Baby Crib</h4>
-                <p>Family friendly</p>
+                <h4 data-en="Baby Crib" data-de="Babybett" data-it="Culla per Bambini" data-ro="Pătuț pentru Bebeluși" data-fr="Berceau pour Bébé">Baby Crib</h4>
+                <p data-en="Family friendly" data-de="Familienfreundlich" data-it="Adatto alle famiglie" data-ro="Prietenos cu familia" data-fr="Adapté aux familles">Family friendly</p>
               </div>
             </div>
           </div>
 
           <!-- Services & Safety -->
           <div class="amenity-category">
-            <h3><i class="fas fa-concierge-bell"></i> Services & Safety</h3>
+            <h3><i class="fas fa-concierge-bell"></i> <span data-en="Services & Safety" data-de="Service & Sicherheit" data-it="Servizi & Sicurezza" data-ro="Servicii & Siguranță" data-fr="Services & Sécurité">Services & Safety</span></h3>
             <div class="amenities-grid">
               <div class="amenity">
                 <i class="fas fa-key"></i>
-                <h4>Self Check-in</h4>
-                <p>24h smart lock access</p>
+                <h4 data-en="Self Check-in" data-de="Selbst-Check-in" data-it="Check-in Automatico" data-ro="Check-in Independent" data-fr="Enregistrement Automatique">Self Check-in</h4>
+                <p data-en="24h smart lock access" data-de="24h Smart-Lock-Zugang" data-it="Accesso smart lock 24h" data-ro="Acces smart lock 24h" data-fr="Accès smart lock 24h">24h smart lock access</p>
               </div>
               <div class="amenity">
                 <i class="fas fa-shield-alt"></i>
-                <h4>Safety Features</h4>
-                <p>Smoke & CO alarms</p>
+                <h4 data-en="Safety Features" data-de="Sicherheitsfeatures" data-it="Caratteristiche di Sicurezza" data-ro="Caracteristici de Siguranță" data-fr="Caractéristiques de Sécurité">Safety Features</h4>
+                <p data-en="Smoke & CO alarms" data-de="Rauch- & CO-Alarme" data-it="Allarmi fumo e CO" data-ro="Alarme fum și CO" data-fr="Alarmes fumée et CO">Smoke & CO alarms</p>
               </div>
               <div class="amenity">
                 <i class="fas fa-fire-extinguisher"></i>
-                <h4>Fire Extinguisher</h4>
-                <p>Emergency safety equipment</p>
+                <h4 data-en="Fire Extinguisher" data-de="Feuerlöscher" data-it="Estintore" data-ro="Stingător de Incendiu" data-fr="Extincteur">Fire Extinguisher</h4>
+                <p data-en="Emergency safety equipment" data-de="Notfall-Sicherheitsausrüstung" data-it="Attrezzatura di sicurezza di emergenza" data-ro="Echipament de siguranță de urgență" data-fr="Équipement de sécurité d'urgence">Emergency safety equipment</p>
               </div>
               <div class="amenity">
                 <i class="fas fa-wind"></i>
-                <h4>Hair Dryer</h4>
+                <h4 data-en="Hair Dryer" data-de="Fön" data-it="Asciugacapelli" data-ro="Uscător de Păr" data-fr="Sèche-cheveux">Hair Dryer</h4>
               </div>
               <div class="amenity">
                 <i class="fas fa-shower"></i>
-                <h4>Modern Bathroom</h4>
+                <h4 data-en="Modern Bathroom" data-de="Modernes Badezimmer" data-it="Bagno Moderno" data-ro="Baie Modernă" data-fr="Salle de Bain Moderne">Modern Bathroom</h4>
               </div>
               <div class="amenity">
                 <i class="fas fa-chair"></i>
-                <h4>Outdoor Furniture</h4>
+                <h4 data-en="Outdoor Furniture" data-de="Gartenmöbel" data-it="Mobili da Esterno" data-ro="Mobilier de Exterior" data-fr="Mobilier d'Extérieur">Outdoor Furniture</h4>
               </div>
               <div class="amenity">
                 <i class="fas fa-home"></i>
-                <h4>Private Balcony</h4>
+                <h4 data-en="Private Balcony" data-de="Privater Balkon" data-it="Balcone Privato" data-ro="Balcon Privat" data-fr="Balcon Privé">Private Balcony</h4>
               </div>
             </div>
           </div>
@@ -1670,8 +1673,8 @@
           <div class="location-map">
             <div class="map-placeholder">
               <i class="fas fa-map-marked-alt"></i>
-              <p>Interactive Map</p>
-              <small>Badesi, Sardinia, Italy</small>
+              <p data-en="Interactive Map" data-de="Interaktive Karte" data-it="Mappa Interattiva" data-ro="Hartă Interactivă" data-fr="Carte Interactive">Interactive Map</p>
+              <small data-en="Badesi, Sardinia, Italy" data-de="Badesi, Sardinien, Italien" data-it="Badesi, Sardegna, Italia" data-ro="Badesi, Sardinia, Italia" data-fr="Badesi, Sardaigne, Italie">Badesi, Sardinia, Italy</small>
             </div>
           </div>
         </div>
