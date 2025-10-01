@@ -34,13 +34,13 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         height: 80px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
       
       .navbar.scrolled {
@@ -188,9 +188,31 @@
         border-radius: 8px;
       }
       
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, #2563eb, #3b82f6);
+        border-radius: 1px;
+        transition: transform 0.3s ease;
+      }
+      
       .nav-link:hover {
         color: #2563eb;
         background: rgba(37, 99, 235, 0.05);
+      }
+      
+      .nav-link:hover::after {
+        transform: translateX(-50%) scaleX(1);
       }
       
       .hero {
@@ -360,11 +382,23 @@
         color: #111827;
         margin-bottom: 20px;
         position: relative;
-        background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+        background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #8b5cf6 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         letter-spacing: -0.5px;
+        animation: fadeInUp 0.8s ease-out;
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       
       .section-header h2::after {
@@ -1083,6 +1117,96 @@
         body.menu-open {
           overflow: hidden;
         }
+        
+        /* Modern Map Container Styles */
+        .map-container {
+          width: 100%;
+          max-width: 500px;
+          background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+          border-radius: 24px;
+          padding: 24px;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(20px);
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .map-image {
+          position: relative;
+          border-radius: 16px;
+          overflow: hidden;
+          margin-bottom: 20px;
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .map-image img {
+          width: 100%;
+          height: auto;
+          display: block;
+          transition: transform 0.3s ease;
+        }
+        
+        .map-image:hover img {
+          transform: scale(1.05);
+        }
+        
+        .map-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(30, 58, 138, 0.1) 100%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .location-pin {
+          background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+          color: white;
+          padding: 12px 20px;
+          border-radius: 50px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-weight: 600;
+          font-size: 16px;
+          box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+          animation: pulse 2s infinite;
+        }
+        
+        .location-pin i {
+          font-size: 18px;
+        }
+        
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+        
+        .map-info {
+          text-align: center;
+        }
+        
+        .map-info h4 {
+          font-size: 20px;
+          font-weight: 700;
+          color: #1e293b;
+          margin-bottom: 12px;
+          background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        
+        .map-info p {
+          font-size: 16px;
+          color: #64748b;
+          line-height: 1.6;
+          margin: 0;
+        }
 
         .nav-menu li {
           margin: 8px 0;
@@ -1317,7 +1441,7 @@
               <div class="feature">
                 <i class="fas fa-umbrella-beach"></i>
                 <h4 data-en="Beach Access" data-de="Strandzugang" data-it="Accesso alla spiaggia" data-ro="Acces la plajă" data-fr="Accès à la plage">Beach Access</h4>
-                <p data-en="Just 5 minutes from the stunning Li Junchi Beach" data-de="Nur 5 Minuten vom atemberaubenden Li Junchi Strand" data-it="Solo 5 minuti dalla splendida spiaggia di Li Junchi" data-ro="Doar 5 minute de la plaja uimitoare Li Junchi" data-fr="À seulement 5 minutes de la magnifique plage de Li Junchi">Just 5 minutes from the stunning Li Junchi Beach</p>
+                <p data-en="Just 2.8 Km from the stunning Li Junchi Beach" data-de="Nur 2,8 Km vom atemberaubenden Li Junchi Strand" data-it="Solo 2,8 Km dalla splendida spiaggia di Li Junchi" data-ro="Doar 2,8 Km de la plaja uimitoare Li Junchi" data-fr="À seulement 2,8 Km de la magnifique plage de Li Junchi">Just 2.8 Km from the stunning Li Junchi Beach</p>
               </div>
               <div class="feature">
                 <i class="fas fa-car"></i>
@@ -1431,30 +1555,30 @@
             </div>
             
             <div class="nearby-attractions">
-              <h4><i class="fas fa-star"></i> Discover the Magic of North Sardinia</h4>
+              <h4><i class="fas fa-star"></i> <span data-en="Discover the Magic of North Sardinia" data-de="Entdecken Sie die Magie Nord-Sardiniens" data-it="Scopri la Magia della Sardegna Settentrionale" data-ro="Descoperă Magia Sardiniei de Nord" data-fr="Découvrez la Magie de la Sardaigne du Nord">Discover the Magic of North Sardinia</span></h4>
               <div class="attraction-item">
                 <i class="fas fa-umbrella-beach"></i>
-                <span><strong>Li Junchi Beach</strong> - Crystal clear waters just 5 minutes away</span>
+                <span data-en="<strong>Li Junchi Beach</strong> - Crystal clear waters just 2.8 Km away" data-de="<strong>Li Junchi Strand</strong> - Kristallklares Wasser nur 2,8 Km entfernt" data-it="<strong>Spiaggia di Li Junchi</strong> - Acque cristalline a soli 2,8 Km" data-ro="<strong>Plaja Li Junchi</strong> - Ape cristalină la doar 2,8 Km distanță" data-fr="<strong>Plage de Li Junchi</strong> - Eaux cristallines à seulement 2,8 Km"><strong>Li Junchi Beach</strong> - Crystal clear waters just 2.8 Km away</span>
               </div>
               <div class="attraction-item">
                 <i class="fas fa-shopping-bag"></i>
-                <span><strong>Local Charm</strong> - Authentic shops, restaurants & cafes within walking distance</span>
+                <span data-en="<strong>Local Charm</strong> - Authentic shops, restaurants & cafes within walking distance" data-de="<strong>Lokaler Charme</strong> - Authentische Geschäfte, Restaurants & Cafés in Gehweite" data-it="<strong>Fascino Locale</strong> - Negozi autentici, ristoranti e caffè a pochi passi" data-ro="<strong>Farmec Local</strong> - Magazine autentice, restaurante și cafenele la câțiva pași" data-fr="<strong>Charme Local</strong> - Magasins authentiques, restaurants et cafés à quelques pas"><strong>Local Charm</strong> - Authentic shops, restaurants & cafes within walking distance</span>
               </div>
               <div class="attraction-item">
                 <i class="fas fa-hiking"></i>
-                <span><strong>Nature Adventures</strong> - Breathtaking trails and pristine beaches to explore</span>
+                <span data-en="<strong>Nature Adventures</strong> - Breathtaking trails and pristine beaches to explore" data-de="<strong>Naturabenteuer</strong> - Atemberaubende Pfade und unberührte Strände zu erkunden" data-it="<strong>Avventure nella Natura</strong> - Sentieri mozzafiato e spiagge incontaminate da esplorare" data-ro="<strong>Aventuri în Natură</strong> - Trasee uimitoare și plaje pristin de explorat" data-fr="<strong>Aventures Nature</strong> - Sentiers à couper le souffle et plages immaculées à explorer"><strong>Nature Adventures</strong> - Breathtaking trails and pristine beaches to explore</span>
               </div>
               <div class="attraction-item">
                 <i class="fas fa-monument"></i>
-                <span><strong>Rich History</strong> - Ancient sites and cultural treasures await discovery</span>
+                <span data-en="<strong>Rich History</strong> - Ancient sites and cultural treasures await discovery" data-de="<strong>Reiche Geschichte</strong> - Antike Stätten und kulturelle Schätze warten auf Entdeckung" data-it="<strong>Storia Ricca</strong> - Siti antichi e tesori culturali aspettano di essere scoperti" data-ro="<strong>Istorie Bogată</strong> - Situri antice și comori culturale așteaptă să fie descoperite" data-fr="<strong>Histoire Riche</strong> - Sites anciens et trésors culturels attendent d'être découverts"><strong>Rich History</strong> - Ancient sites and cultural treasures await discovery</span>
               </div>
               <div class="attraction-item">
                 <i class="fas fa-car"></i>
-                <span><strong>Easy Exploration</strong> - Costa Smeralda, Alghero, and Porto Torres all within 1 hour</span>
+                <span data-en="<strong>Easy Exploration</strong> - Costa Smeralda, Alghero, and Porto Torres all within 1 hour" data-de="<strong>Einfache Erkundung</strong> - Costa Smeralda, Alghero und Porto Torres alle innerhalb von 1 Stunde" data-it="<strong>Esplorazione Facile</strong> - Costa Smeralda, Alghero e Porto Torres tutti entro 1 ora" data-ro="<strong>Explorare Ușoară</strong> - Costa Smeralda, Alghero și Porto Torres toate în 1 oră" data-fr="<strong>Exploration Facile</strong> - Costa Smeralda, Alghero et Porto Torres tous en 1 heure"><strong>Easy Exploration</strong> - Costa Smeralda, Alghero, and Porto Torres all within 1 hour</span>
               </div>
               <div class="attraction-item">
                 <i class="fas fa-wine-glass"></i>
-                <span><strong>Local Delights</strong> - Taste authentic Sardinian cuisine and world-class wines</span>
+                <span data-en="<strong>Local Delights</strong> - Taste authentic Sardinian cuisine and world-class wines" data-de="<strong>Lokale Köstlichkeiten</strong> - Probieren Sie authentische sardische Küche und Weltklasse-Weine" data-it="<strong>Delizie Locali</strong> - Assapora l'autentica cucina sarda e vini di classe mondiale" data-ro="<strong>Delicii Locale</strong> - Gustați bucătăria autentică sardă și vinuri de clasă mondială" data-fr="<strong>Délices Locaux</strong> - Dégustez la cuisine sarde authentique et les vins de classe mondiale"><strong>Local Delights</strong> - Taste authentic Sardinian cuisine and world-class wines</span>
               </div>
             </div>
           </div>
@@ -1646,35 +1770,45 @@
               <h4><i class="fas fa-star"></i> <span data-en="Discover the Magic of North Sardinia" data-de="Entdecken Sie die Magie Nord-Sardiniens" data-it="Scopri la Magia della Sardegna Settentrionale" data-ro="Descoperă Magia Sardiniei de Nord" data-fr="Découvrez la Magie de la Sardaigne du Nord">Discover the Magic of North Sardinia</span></h4>
               <div class="attraction-item">
                 <i class="fas fa-umbrella-beach"></i>
-                <span><strong>Li Junchi Beach</strong> - Crystal clear waters just 5 minutes away</span>
+                <span data-en="<strong>Li Junchi Beach</strong> - Crystal clear waters just 2.8 Km away" data-de="<strong>Li Junchi Strand</strong> - Kristallklares Wasser nur 2,8 Km entfernt" data-it="<strong>Spiaggia di Li Junchi</strong> - Acque cristalline a soli 2,8 Km" data-ro="<strong>Plaja Li Junchi</strong> - Ape cristalină la doar 2,8 Km distanță" data-fr="<strong>Plage de Li Junchi</strong> - Eaux cristallines à seulement 2,8 Km"><strong>Li Junchi Beach</strong> - Crystal clear waters just 2.8 Km away</span>
               </div>
               <div class="attraction-item">
                 <i class="fas fa-shopping-bag"></i>
-                <span><strong>Local Charm</strong> - Authentic shops, restaurants & cafes within walking distance</span>
+                <span data-en="<strong>Local Charm</strong> - Authentic shops, restaurants & cafes within walking distance" data-de="<strong>Lokaler Charme</strong> - Authentische Geschäfte, Restaurants & Cafés in Gehweite" data-it="<strong>Fascino Locale</strong> - Negozi autentici, ristoranti e caffè a pochi passi" data-ro="<strong>Farmec Local</strong> - Magazine autentice, restaurante și cafenele la câțiva pași" data-fr="<strong>Charme Local</strong> - Magasins authentiques, restaurants et cafés à quelques pas"><strong>Local Charm</strong> - Authentic shops, restaurants & cafes within walking distance</span>
               </div>
               <div class="attraction-item">
                 <i class="fas fa-hiking"></i>
-                <span><strong>Nature Adventures</strong> - Breathtaking trails and pristine beaches to explore</span>
+                <span data-en="<strong>Nature Adventures</strong> - Breathtaking trails and pristine beaches to explore" data-de="<strong>Naturabenteuer</strong> - Atemberaubende Pfade und unberührte Strände zu erkunden" data-it="<strong>Avventure nella Natura</strong> - Sentieri mozzafiato e spiagge incontaminate da esplorare" data-ro="<strong>Aventuri în Natură</strong> - Trasee uimitoare și plaje pristin de explorat" data-fr="<strong>Aventures Nature</strong> - Sentiers à couper le souffle et plages immaculées à explorer"><strong>Nature Adventures</strong> - Breathtaking trails and pristine beaches to explore</span>
               </div>
               <div class="attraction-item">
                 <i class="fas fa-monument"></i>
-                <span><strong>Rich History</strong> - Ancient sites and cultural treasures await discovery</span>
+                <span data-en="<strong>Rich History</strong> - Ancient sites and cultural treasures await discovery" data-de="<strong>Reiche Geschichte</strong> - Antike Stätten und kulturelle Schätze warten auf Entdeckung" data-it="<strong>Storia Ricca</strong> - Siti antichi e tesori culturali aspettano di essere scoperti" data-ro="<strong>Istorie Bogată</strong> - Situri antice și comori culturale așteaptă să fie descoperite" data-fr="<strong>Histoire Riche</strong> - Sites anciens et trésors culturels attendent d'être découverts"><strong>Rich History</strong> - Ancient sites and cultural treasures await discovery</span>
               </div>
               <div class="attraction-item">
                 <i class="fas fa-car"></i>
-                <span><strong>Easy Exploration</strong> - Costa Smeralda, Alghero, and Porto Torres all within 1 hour</span>
+                <span data-en="<strong>Easy Exploration</strong> - Costa Smeralda, Alghero, and Porto Torres all within 1 hour" data-de="<strong>Einfache Erkundung</strong> - Costa Smeralda, Alghero und Porto Torres alle innerhalb von 1 Stunde" data-it="<strong>Esplorazione Facile</strong> - Costa Smeralda, Alghero e Porto Torres tutti entro 1 ora" data-ro="<strong>Explorare Ușoară</strong> - Costa Smeralda, Alghero și Porto Torres toate în 1 oră" data-fr="<strong>Exploration Facile</strong> - Costa Smeralda, Alghero et Porto Torres tous en 1 heure"><strong>Easy Exploration</strong> - Costa Smeralda, Alghero, and Porto Torres all within 1 hour</span>
               </div>
               <div class="attraction-item">
                 <i class="fas fa-wine-glass"></i>
-                <span><strong>Local Delights</strong> - Taste authentic Sardinian cuisine and world-class wines</span>
+                <span data-en="<strong>Local Delights</strong> - Taste authentic Sardinian cuisine and world-class wines" data-de="<strong>Lokale Köstlichkeiten</strong> - Probieren Sie authentische sardische Küche und Weltklasse-Weine" data-it="<strong>Delizie Locali</strong> - Assapora l'autentica cucina sarda e vini di classe mondiale" data-ro="<strong>Delicii Locale</strong> - Gustați bucătăria autentică sardă și vinuri de clasă mondială" data-fr="<strong>Délices Locaux</strong> - Dégustez la cuisine sarde authentique et les vins de classe mondiale"><strong>Local Delights</strong> - Taste authentic Sardinian cuisine and world-class wines</span>
               </div>
             </div>
           </div>
           <div class="location-map">
-            <div class="map-placeholder">
-              <i class="fas fa-map-marked-alt"></i>
-              <p data-en="Interactive Map" data-de="Interaktive Karte" data-it="Mappa Interattiva" data-ro="Hartă Interactivă" data-fr="Carte Interactive">Interactive Map</p>
-              <small data-en="Badesi, Sardinia, Italy" data-de="Badesi, Sardinien, Italien" data-it="Badesi, Sardegna, Italia" data-ro="Badesi, Sardinia, Italia" data-fr="Badesi, Sardaigne, Italie">Badesi, Sardinia, Italy</small>
+            <div class="map-container">
+              <div class="map-image">
+                <img src="img/badesi-location.png" alt="Badesi Location in North Sardinia" />
+                <div class="map-overlay">
+                  <div class="location-pin">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span data-en="Badesi" data-de="Badesi" data-it="Badesi" data-ro="Badesi" data-fr="Badesi">Badesi</span>
+                  </div>
+                </div>
+              </div>
+              <div class="map-info">
+                <h4 data-en="Perfect Central Location" data-de="Perfekte Zentrale Lage" data-it="Posizione Centrale Perfetta" data-ro="Locație Centrală Perfectă" data-fr="Emplacement Central Parfait">Perfect Central Location</h4>
+                <p data-en="Strategically positioned in the heart of North Sardinia - reach all corners within 1 hour" data-de="Strategisch im Herzen Nord-Sardiniens gelegen - erreichen Sie alle Ecken in nur 1 Stunde" data-it="Posizionato strategicamente nel cuore della Sardegna settentrionale - raggiungi tutti gli angoli in 1 ora" data-ro="Poziționat strategic în inima Sardiniei de Nord - ajungeți în toate colțurile în 1 oră" data-fr="Positionné stratégiquement au cœur de la Sardaigne du Nord - atteignez tous les coins en 1 heure">Strategically positioned in the heart of North Sardinia - reach all corners within 1 hour</p>
+              </div>
             </div>
           </div>
         </div>
