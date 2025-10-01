@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initCounters();
     initLazyLoading();
     initPerformanceOptimizations();
+    initLanguageSelector();
     
     // Add loaded class for CSS animations
     document.body.classList.add('loaded');
@@ -473,6 +474,38 @@ console.log(`
 'color: #2563eb; font-size: 16px; font-weight: bold;',
 'color: #6b7280; font-size: 14px;'
 );
+
+// Language Selector functionality
+function initLanguageSelector() {
+    const languageSelect = document.getElementById('language-select');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    if (languageSelect) {
+        languageSelect.addEventListener('change', function() {
+            const selectedLanguage = this.value;
+            
+            // Update navigation links
+            navLinks.forEach(link => {
+                const text = link.getAttribute(`data-${selectedLanguage}`);
+                if (text) {
+                    link.textContent = text;
+                }
+            });
+            
+            // Store language preference
+            localStorage.setItem('selectedLanguage', selectedLanguage);
+            
+            console.log(`Language changed to: ${selectedLanguage}`);
+        });
+        
+        // Load saved language preference
+        const savedLanguage = localStorage.getItem('selectedLanguage');
+        if (savedLanguage) {
+            languageSelect.value = savedLanguage;
+            languageSelect.dispatchEvent(new Event('change'));
+        }
+    }
+}
 
 // Export functions for potential external use
 window.DaVinciResidence = {
