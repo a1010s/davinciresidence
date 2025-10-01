@@ -274,10 +274,34 @@ function openLightbox(photo) {
     
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox || e.target.tagName === 'SPAN') {
-            document.body.removeChild(lightbox);
-            document.body.style.overflow = 'auto';
+            closeLightbox();
         }
     });
+    
+    // Add escape key support
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        }
+    };
+    document.addEventListener('keydown', handleEscape);
+    
+    // Store the escape handler for cleanup
+    lightbox._escapeHandler = handleEscape;
+}
+
+// Close lightbox function
+function closeLightbox() {
+    const lightbox = document.querySelector('.lightbox');
+    if (lightbox) {
+        // Remove escape key listener
+        if (lightbox._escapeHandler) {
+            document.removeEventListener('keydown', lightbox._escapeHandler);
+        }
+        
+        document.body.removeChild(lightbox);
+        document.body.style.overflow = 'auto';
+    }
 }
 
 // Scroll animations
@@ -658,10 +682,16 @@ function translatePage(language) {
                 btnText.textContent = text;
                 console.log(`✓ Translated button text: ${text}`);
             } else {
-                // For elements without special structure, just replace text content
-                // This preserves any HTML structure
-                element.textContent = text;
-                console.log(`✓ Translated element: ${text}`);
+                // Check if the text contains HTML tags
+                if (text.includes('<') && text.includes('>')) {
+                    // Use innerHTML for elements that contain HTML tags
+                    element.innerHTML = text;
+                    console.log(`✓ Translated element with HTML: ${text}`);
+                } else {
+                    // Use textContent for plain text
+                    element.textContent = text;
+                    console.log(`✓ Translated element: ${text}`);
+                }
             }
             translatedCount++;
         } else {
