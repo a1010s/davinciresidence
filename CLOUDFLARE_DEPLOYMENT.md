@@ -85,7 +85,7 @@ Edit `index.html` and replace:
 Replace the images in the `img/` folder:
 - `beach.jpg` - Hero background image
 - `livingroom.jpg` - Interior photo
-- `terrace.jpg` - Terrace view photo
+- `terrace.png` - Terrace view photo
 
 ### 3. SEO Optimization
 The site is already optimized with:
