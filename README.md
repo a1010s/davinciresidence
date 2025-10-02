@@ -66,7 +66,7 @@ davinciresidence/
 ├── img/
 │   ├── beach.jpg       # Hero background image
 │   ├── livingroom.jpg  # Interior photo
-│   └── terrace.png     # Terrace view photo
+│   └── terrace.jpg     # Terrace view photo
 └── README.md           # This documentation
 ```
 
