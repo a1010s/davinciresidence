@@ -218,7 +218,7 @@ function initGallery() {
             title: 'Crystal Clear Waters'
         },
         {
-            src: 'img/terrace.png',
+            src: 'img/terrace.png?v=2',
             alt: 'Private Terrace View',
             title: 'Mediterranean Views'
         },
