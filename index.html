@@ -170,29 +170,50 @@
       .language-selector {
         display: flex;
         align-items: center;
+        margin-left: 16px;
       }
       
-      .language-selector select {
-        background: rgba(255, 255, 255, 0.9);
-        border: 1px solid rgba(37, 99, 235, 0.2);
-        border-radius: 8px;
-        padding: 8px 12px;
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
-        color: #374151;
-        cursor: pointer;
-        transition: all 0.3s ease;
+      .language-select-modern {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+        border: 2px solid #e5e7eb !important;
+        border-radius: 12px !important;
+        padding: 10px 16px !important;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        color: #1f2937 !important;
+        cursor: pointer !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.06) !important;
+        letter-spacing: 0.3px !important;
+        text-transform: uppercase !important;
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%232563eb' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 12px center !important;
+        padding-right: 36px !important;
       }
       
-      .language-selector select:hover {
-        background: rgba(255, 255, 255, 1);
-        border-color: rgba(37, 99, 235, 0.4);
+      .language-select-modern:hover {
+        background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%) !important;
+        border-color: #2563eb !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15) !important;
       }
       
-      .language-selector select:focus {
-        outline: none;
-        border-color: #2563eb;
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      .language-select-modern:focus {
+        outline: none !important;
+        border-color: #2563eb !important;
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1), 0 4px 12px rgba(37, 99, 235, 0.15) !important;
+      }
+      
+      .language-select-modern option {
+        font-weight: 600 !important;
+        padding: 12px !important;
+        background: white !important;
+        color: #1f2937 !important;
       }
       
       .nav-link {
@@ -453,6 +474,11 @@
         border-radius: 2px;
       }
       
+      .section-header[style*="text-align: left"] h2::after {
+        left: 0;
+        transform: translateX(0);
+      }
+      
       .section-subtitle {
         font-size: 20px;
         color: #6b7280;
@@ -463,54 +489,68 @@
         background: linear-gradient(135deg, #f9fafb 0%, #eff6ff 100%);
       }
       
-      /* Apartment Details Section */
+      /* Apartment Details Section - Modern Design */
       .apartment-details {
-        background: white;
+        background: linear-gradient(135deg, #f0f9ff 0%, #eff6ff 100%);
         position: relative;
       }
       
       .apartment-layout {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 60px;
+        gap: 40px;
         align-items: start;
       }
       
       .apartment-features,
       .location-access {
-        background: rgba(255, 255, 255, 0.8);
+        background: white;
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
-        padding: 40px;
+        padding: 48px;
         border-radius: 24px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 40px rgba(37, 99, 235, 0.1);
+        border: 2px solid rgba(37, 99, 235, 0.1);
+        transition: all 0.3s ease;
+      }
+      
+      .apartment-features:hover,
+      .location-access:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+        border-color: rgba(37, 99, 235, 0.2);
       }
       
       .apartment-features h3,
       .location-access h3 {
-        font-family: 'Inter', sans-serif;
-        font-size: 24px;
-        font-weight: 600;
-        color: #1d4ed8;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 20px !important;
+        font-weight: 700 !important;
+        color: #1e40af !important;
         margin-bottom: 32px;
         display: flex;
         align-items: center;
         gap: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
       }
       
       .apartment-features h3 i,
       .location-access h3 i {
-        font-size: 20px;
-        color: #f59e0b;
+        font-size: 24px;
+        color: #2563eb;
+        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
       }
       
       .features-list {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
       }
       
       .feature-item {
@@ -518,16 +558,17 @@
         align-items: flex-start;
         gap: 16px;
         padding: 20px;
-        background: rgba(255, 255, 255, 0.6);
+        background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
         border-radius: 16px;
         border: 1px solid rgba(37, 99, 235, 0.1);
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
       
       .feature-item:hover {
         transform: translateX(8px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        border-color: rgba(37, 99, 235, 0.2);
+        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.12);
+        border-color: rgba(37, 99, 235, 0.3);
+        background: white;
       }
       
       .feature-item i {
@@ -535,13 +576,20 @@
         color: #2563eb;
         margin-top: 4px;
         flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 10px;
       }
       
       .feature-content h4 {
-        font-family: 'Inter', sans-serif;
-        font-size: 16px;
-        font-weight: 600;
-        color: #111827;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        color: #111827 !important;
         margin-bottom: 4px;
       }
       
@@ -736,56 +784,69 @@
       
       .amenities-compact {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 32px;
       }
       
       .amenity-category {
-        background: rgba(255, 255, 255, 0.95);
+        background: white;
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
-        padding: 24px;
-        border-radius: 20px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 32px;
+        border-radius: 24px;
+        box-shadow: 0 10px 40px rgba(37, 99, 235, 0.1);
+        border: 2px solid rgba(37, 99, 235, 0.1);
         will-change: transform;
         transform: translateZ(0);
+        transition: all 0.3s ease;
+      }
+      
+      .amenity-category:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+        border-color: rgba(37, 99, 235, 0.2);
       }
       
       .amenity-category h3 {
-        font-family: 'Inter', sans-serif;
-        font-size: 18px;
-        font-weight: 600;
-        color: #1d4ed8;
-        margin-bottom: 20px;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 18px !important;
+        font-weight: 700 !important;
+        color: #1e40af !important;
+        margin-bottom: 24px;
         display: flex;
         align-items: center;
-        gap: 10px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+        gap: 12px;
+        letter-spacing: 0.3px;
       }
       
       .amenity-category h3 i {
-        font-size: 18px;
-        color: #f59e0b;
+        font-size: 22px;
+        color: #2563eb;
+        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
       }
       
       .amenities-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 16px;
       }
       
       .amenity {
-        background: rgba(255, 255, 255, 0.6);
+        background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        padding: 16px;
-        border-radius: 14px;
+        padding: 20px;
+        border-radius: 16px;
         text-align: center;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        border: 1px solid rgba(37, 99, 235, 0.1);
         position: relative;
         overflow: hidden;
       }
@@ -1270,11 +1331,16 @@
           display: flex;
           margin-top: 16px;
           justify-content: center;
+          width: 100%;
+          padding: 0 16px;
         }
         
-        .language-selector select {
-          font-size: 14px;
-          padding: 8px 12px;
+        .language-select-modern {
+          width: 100% !important;
+          max-width: 280px !important;
+          font-size: 13px !important;
+          padding: 12px 16px !important;
+          text-align: center !important;
         }
 
         .hamburger:hover {
@@ -1515,12 +1581,12 @@
           </li>
         </ul>
         <div class="language-selector">
-          <select id="language-select">
-            <option value="en">🇬🇧 EN</option>
-            <option value="de">🇩🇪 DE</option>
-            <option value="it">🇮🇹 IT</option>
-            <option value="ro">🇷🇴 RO</option>
-            <option value="fr">🇫🇷 FR</option>
+          <select id="language-select" class="language-select-modern">
+            <option value="en">EN · English</option>
+            <option value="de">DE · Deutsch</option>
+            <option value="it">IT · Italiano</option>
+            <option value="ro">RO · Română</option>
+            <option value="fr">FR · Français</option>
           </select>
         </div>
         <div class="hamburger" id="hamburger">
@@ -1646,6 +1712,11 @@
             <i class="fas fa-snowflake"></i>
             <h4 data-en="Climate Control" data-de="Klimakontrolle" data-it="Controllo Climatico" data-ro="Control Climatic" data-fr="Contrôle Climatique">Climate Control</h4>
             <p data-en="Stay comfortable with air conditioning for those warm Sardinian days" data-de="Bleiben Sie komfortabel mit Klimaanlage für diese warmen sardischen Tage" data-it="Rimani comodo con l'aria condizionata per quelle calde giornate sarde" data-ro="Rămâi confortabil cu aer condiționat pentru acele zile calde sardiniene" data-fr="Restez confortable avec la climatisation pour ces chaudes journées sardes">Stay comfortable with air conditioning for those warm Sardinian days</p>
+          </div>
+          <div class="smart-feature-card">
+            <i class="fas fa-wind"></i>
+            <h4 data-en="Automatic Dehumidifier" data-de="Automatischer Luftentfeuchter" data-it="Deumidificatore Automatico" data-ro="Deumidificator Automat" data-fr="Déshumidificateur Automatique">Automatic Dehumidifier</h4>
+            <p data-en="Starts automatically for the perfect environment and sleep quality" data-de="Startet automatisch für die perfekte Umgebung und Schlafqualität" data-it="Si avvia automaticamente per l'ambiente perfetto e la qualità del sonno" data-ro="Pornește automat pentru mediul perfect și calitatea somnului" data-fr="Démarre automatiquement pour un environnement parfait et une qualité de sommeil">Starts automatically for the perfect environment and sleep quality</p>
           </div>
         </div>
       </div>
