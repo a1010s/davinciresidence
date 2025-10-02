@@ -26,11 +26,11 @@ const SPECIAL_OFFERS = {
     featured: true,                    // true = shows "FEATURED" badge
     icon: "fa-sun",                    // Icon: fa-sun, fa-heart, fa-snowflake, fa-umbrella-beach, fa-gift
     
-    title_en: "Summer 2025 Early Bird",
-    title_de: "Sommer 2025 Frühbucher",
-    title_it: "Estate 2025 Early Bird",
-    title_ro: "Vară 2025 Early Bird",
-    title_fr: "Été 2025 Réservation Anticipée",
+    title_en: "Summer 2026 Early Bird",
+    title_de: "Sommer 2026 Frühbucher",
+    title_it: "Estate 2026 Early Bird",
+    title_ro: "Vară 2026 Early Bird",
+    title_fr: "Été 2026 Réservation Anticipée",
     
     discount: "15% OFF",               // e.g., "15% OFF", "20% DISCOUNT", "€50 OFF"
     
@@ -40,11 +40,11 @@ const SPECIAL_OFFERS = {
     description_ro: "Rezervați-vă acum vacanța de vară și economisiți 15% la sejururi de 7+ nopți!",
     description_fr: "Réservez vos vacances d'été maintenant et économisez 15% sur les séjours de 7+ nuits!",
     
-    validity_en: "Valid: January - March 2025",
-    validity_de: "Gültig: Januar - März 2025",
-    validity_it: "Valido: Gennaio - Marzo 2025",
-    validity_ro: "Valabil: Ianuarie - Martie 2025",
-    validity_fr: "Valable: Janvier - Mars 2025",
+    validity_en: "Valid: January - March 2026",
+    validity_de: "Gültig: Januar - März 2026",
+    validity_it: "Valido: Gennaio - Marzo 2026",
+    validity_ro: "Valabil: Ianuarie - Martie 2026",
+    validity_fr: "Valable: Janvier - Mars 2026",
   },
   
   // ========== OFFER 2 ==========
