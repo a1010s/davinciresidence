@@ -587,7 +587,7 @@ console.log(`
 'color: #6b7280; font-size: 14px;'
 );
 
-// Language Selector functionality
+// Language Selector functionality with URL parameter support
 function initLanguageSelector() {
     console.log('Initializing language selector...');
     const languageSelect = document.getElementById('language-select');
@@ -596,20 +596,40 @@ function initLanguageSelector() {
     if (languageSelect) {
         console.log('Language selector found, adding event listener...');
         
-        // Test if translatePage function exists
-        console.log('translatePage function exists:', typeof translatePage === 'function');
+        // Get language from URL parameter first, then localStorage, then default
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlLang = urlParams.get('lang');
+        const savedLanguage = localStorage.getItem('selectedLanguage');
+        const initialLanguage = urlLang || savedLanguage || 'en';
         
+        console.log('URL language:', urlLang);
+        console.log('Saved language:', savedLanguage);
+        console.log('Initial language:', initialLanguage);
+        
+        // Set the select value
+        languageSelect.value = initialLanguage;
+        
+        // Apply initial translation
+        if (typeof translatePage === 'function') {
+            translatePage(initialLanguage);
+            console.log('Initial translation applied:', initialLanguage);
+        }
+        
+        // Add change event listener
         languageSelect.addEventListener('change', function(e) {
             const selectedLanguage = this.value;
             console.log('=== LANGUAGE SELECTOR EVENT ===');
             console.log('Language selector changed to:', selectedLanguage);
-            console.log('Event object:', e);
-            console.log('Select element:', this);
-            console.log('Select value:', this.value);
             
             // Store language preference
             localStorage.setItem('selectedLanguage', selectedLanguage);
             console.log('Language saved to localStorage:', selectedLanguage);
+            
+            // Update URL with language parameter
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('lang', selectedLanguage);
+            window.history.pushState({}, '', newUrl);
+            console.log('URL updated with language parameter:', newUrl.toString());
             
             // Call translatePage
             console.log('Calling translatePage with:', selectedLanguage);
@@ -622,23 +642,6 @@ function initLanguageSelector() {
             
             console.log('=== END LANGUAGE SELECTOR EVENT ===');
         });
-        
-        // Load saved language preference
-        const savedLanguage = localStorage.getItem('selectedLanguage');
-        console.log('Saved language from localStorage:', savedLanguage);
-        if (savedLanguage) {
-            console.log('Loading saved language:', savedLanguage);
-            languageSelect.value = savedLanguage;
-            if (typeof translatePage === 'function') {
-                translatePage(savedLanguage);
-                console.log('Initial translation applied');
-            }
-        } else {
-            console.log('No saved language, using default (en)');
-            if (typeof translatePage === 'function') {
-                translatePage('en');
-            }
-        }
     } else {
         console.error('Language selector element not found!');
         console.log('Available elements with "language" in ID:', 
