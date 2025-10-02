@@ -1399,7 +1399,7 @@ section {
   background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
   padding: var(--space-10);
   border-radius: var(--radius-2xl);
-  color: white;
+  color: white !important;
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-2xl);
@@ -1435,18 +1435,22 @@ section {
 }
 
 .smart-feature-hero h3 {
+  font-family: 'Inter', sans-serif !important;
   font-size: var(--font-size-3xl);
   margin-bottom: var(--space-4);
-  color: white;
+  color: white !important;
   position: relative;
   z-index: 1;
+  font-weight: 700;
 }
 
 .smart-hero-text {
+  font-family: 'Inter', sans-serif !important;
   font-size: var(--font-size-lg);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-6);
-  opacity: 0.95;
+  opacity: 1;
+  color: white !important;
   position: relative;
   z-index: 1;
 }
@@ -1475,8 +1479,10 @@ section {
 }
 
 .benefit-item span {
+  font-family: 'Inter', sans-serif !important;
   font-size: var(--font-size-sm);
   font-weight: 600;
+  color: white !important;
 }
 
 .smart-feature-card {
@@ -1502,12 +1508,15 @@ section {
 }
 
 .smart-feature-card h4 {
+  font-family: 'Inter', sans-serif !important;
   font-size: var(--font-size-xl);
   color: var(--neutral-900);
   margin-bottom: var(--space-3);
+  font-weight: 600;
 }
 
 .smart-feature-card p {
+  font-family: 'Inter', sans-serif !important;
   color: var(--neutral-600);
   font-size: var(--font-size-base);
   margin: 0;
@@ -1839,7 +1848,7 @@ section {
 
 /* Local Insider Guide Section */
 .insider-guide {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
   position: relative;
 }
 
@@ -1854,14 +1863,14 @@ section {
   padding: var(--space-8);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-xl);
-  border: 2px solid var(--secondary-300);
+  border: 2px solid var(--primary-200);
   transition: var(--transition-normal);
 }
 
 .insider-category:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-2xl);
-  border-color: var(--secondary-500);
+  border-color: var(--primary-400);
 }
 
 .insider-header {
@@ -1870,13 +1879,13 @@ section {
   gap: var(--space-4);
   margin-bottom: var(--space-6);
   padding-bottom: var(--space-4);
-  border-bottom: 2px solid var(--secondary-200);
+  border-bottom: 2px solid var(--primary-200);
 }
 
 .insider-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
   border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
@@ -1889,9 +1898,11 @@ section {
 }
 
 .insider-category h3 {
+  font-family: 'Inter', sans-serif !important;
   font-size: var(--font-size-2xl);
   color: var(--neutral-900);
   margin: 0;
+  font-weight: 700;
 }
 
 .insider-items {
@@ -1904,23 +1915,26 @@ section {
   padding: var(--space-4);
   background: var(--neutral-50);
   border-radius: var(--radius-lg);
-  border-left: 4px solid var(--secondary-500);
+  border-left: 4px solid var(--primary-500);
   transition: var(--transition-fast);
 }
 
 .insider-item:hover {
-  background: var(--secondary-50);
-  border-left-color: var(--secondary-600);
+  background: var(--primary-50);
+  border-left-color: var(--primary-600);
   transform: translateX(4px);
 }
 
 .insider-item h4 {
+  font-family: 'Inter', sans-serif !important;
   font-size: var(--font-size-lg);
   color: var(--neutral-900);
   margin-bottom: var(--space-2);
+  font-weight: 600;
 }
 
 .insider-item p {
+  font-family: 'Inter', sans-serif !important;
   font-size: var(--font-size-base);
   color: var(--neutral-600);
   margin: 0;
@@ -1928,8 +1942,8 @@ section {
 }
 
 .insider-tips {
-  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  border-color: #fb923c;
+  background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
+  border-color: var(--primary-300);
 }
 
 .tips-list {
@@ -1960,7 +1974,7 @@ section {
   padding: var(--space-6);
   background: white;
   border-radius: var(--radius-2xl);
-  border: 2px dashed var(--secondary-400);
+  border: 2px dashed var(--primary-400);
   text-align: center;
 }
 

@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initLazyLoading();
     initPerformanceOptimizations();
     initLanguageSelector();
+    loadSpecialOffers();
     
     // Add loaded class for CSS animations
     document.body.classList.add('loaded');
@@ -706,6 +707,103 @@ function translatePage(language) {
 }
 
 
+// Load special offers from configuration file
+function loadSpecialOffers() {
+    console.log('Loading special offers from configuration...');
+    
+    // Check if SPECIAL_OFFERS is defined
+    if (typeof SPECIAL_OFFERS === 'undefined') {
+        console.log('SPECIAL_OFFERS not defined, using default offers');
+        return;
+    }
+    
+    const currentLang = localStorage.getItem('selectedLanguage') || 'en';
+    
+    // Update each offer
+    updateOffer('offer1', SPECIAL_OFFERS.offer1, currentLang, 1);
+    updateOffer('offer2', SPECIAL_OFFERS.offer2, currentLang, 2);
+    updateOffer('offer3', SPECIAL_OFFERS.offer3, currentLang, 3);
+    
+    console.log('Special offers loaded successfully!');
+}
+
+function updateOffer(offerId, offerData, lang, offerNumber) {
+    if (!offerData) return;
+    
+    // Find the offer card in the DOM
+    const offerCards = document.querySelectorAll('.offer-card');
+    if (offerNumber > offerCards.length) return;
+    
+    const offerCard = offerCards[offerNumber - 1];
+    
+    // Update featured badge
+    if (offerData.featured) {
+        if (!offerCard.classList.contains('featured-offer')) {
+            offerCard.classList.add('featured-offer');
+        }
+        if (!offerCard.querySelector('.offer-badge')) {
+            const badge = document.createElement('div');
+            badge.className = 'offer-badge';
+            badge.setAttribute('data-en', 'FEATURED');
+            badge.setAttribute('data-de', 'EMPFOHLEN');
+            badge.setAttribute('data-it', 'IN EVIDENZA');
+            badge.setAttribute('data-ro', 'RECOMANDAT');
+            badge.setAttribute('data-fr', 'VEDETTE');
+            badge.textContent = 'FEATURED';
+            offerCard.insertBefore(badge, offerCard.firstChild);
+        }
+    } else {
+        offerCard.classList.remove('featured-offer');
+        const badge = offerCard.querySelector('.offer-badge');
+        if (badge) badge.remove();
+    }
+    
+    // Update icon
+    const iconElement = offerCard.querySelector('.offer-icon i');
+    if (iconElement && offerData.icon) {
+        iconElement.className = `fas ${offerData.icon}`;
+    }
+    
+    // Update title
+    const titleElement = offerCard.querySelector('h3');
+    if (titleElement) {
+        titleElement.setAttribute('data-en', offerData.title_en);
+        titleElement.setAttribute('data-de', offerData.title_de);
+        titleElement.setAttribute('data-it', offerData.title_it);
+        titleElement.setAttribute('data-ro', offerData.title_ro);
+        titleElement.setAttribute('data-fr', offerData.title_fr);
+        titleElement.textContent = offerData[`title_${lang}`] || offerData.title_en;
+    }
+    
+    // Update discount
+    const discountElement = offerCard.querySelector('.offer-discount');
+    if (discountElement && offerData.discount) {
+        discountElement.textContent = offerData.discount;
+    }
+    
+    // Update description
+    const descElement = offerCard.querySelector('.offer-description');
+    if (descElement) {
+        descElement.setAttribute('data-en', offerData.description_en);
+        descElement.setAttribute('data-de', offerData.description_de);
+        descElement.setAttribute('data-it', offerData.description_it);
+        descElement.setAttribute('data-ro', offerData.description_ro);
+        descElement.setAttribute('data-fr', offerData.description_fr);
+        descElement.textContent = offerData[`description_${lang}`] || offerData.description_en;
+    }
+    
+    // Update validity
+    const validityElement = offerCard.querySelector('.offer-validity');
+    if (validityElement) {
+        validityElement.setAttribute('data-en', offerData.validity_en);
+        validityElement.setAttribute('data-de', offerData.validity_de);
+        validityElement.setAttribute('data-it', offerData.validity_it);
+        validityElement.setAttribute('data-ro', offerData.validity_ro);
+        validityElement.setAttribute('data-fr', offerData.validity_fr);
+        validityElement.textContent = offerData[`validity_${lang}`] || offerData.validity_en;
+    }
+}
+
 // Export functions for potential external use
 window.DaVinciResidence = {
     openLightbox,
@@ -714,5 +812,6 @@ window.DaVinciResidence = {
     revealOnScroll,
     initScrollAnimations,
     translatePage,
-    testTranslation
+    testTranslation,
+    loadSpecialOffers
 };
