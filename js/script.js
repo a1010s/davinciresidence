@@ -215,19 +215,24 @@ function initGallery() {
     const cacheVersion = Date.now();
     const photos = [
         {
-            src: `img/beach.jpg?v=${cacheVersion}`,
-            alt: 'Beautiful Badesi Beach',
-            title: 'Crystal Clear Waters'
-        },
-        {
             src: `img/terrace.jpg?v=${cacheVersion}`,
             alt: 'Private Terrace View',
             title: 'Mediterranean Views'
         },
         {
-            src: `img/livingroom.jpg?v=${cacheVersion}`,
-            alt: 'Elegant Living Room',
-            title: 'Luxury Interior'
+            src: `img/livingroom-day.jpg?v=${cacheVersion}`,
+            alt: 'Elegant Living Room - Day',
+            title: 'Bright & Airy Interior'
+        },
+        {
+            src: `img/livingroom-night.jpg?v=${cacheVersion}`,
+            alt: 'Cozy Living Room - Night',
+            title: 'Evening Ambiance'
+        },
+        {
+            src: `img/beach.jpg?v=${cacheVersion}`,
+            alt: 'Beautiful Badesi Beach',
+            title: 'Crystal Clear Waters'
         }
     ];
 
