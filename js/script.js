@@ -211,19 +211,21 @@ function initScrollEffects() {
 // Enhanced Gallery functionality
 function initGallery() {
     const galleryGrid = document.getElementById('gallery-grid');
+    // Add timestamp for cache busting
+    const cacheVersion = Date.now();
     const photos = [
         {
-            src: 'img/beach.jpg',
+            src: `img/beach.jpg?v=${cacheVersion}`,
             alt: 'Beautiful Badesi Beach',
             title: 'Crystal Clear Waters'
         },
         {
-            src: 'img/terrace.jpg?v=3',
+            src: `img/terrace.jpg?v=${cacheVersion}`,
             alt: 'Private Terrace View',
             title: 'Mediterranean Views'
         },
         {
-            src: 'img/livingroom.jpg',
+            src: `img/livingroom.jpg?v=${cacheVersion}`,
             alt: 'Elegant Living Room',
             title: 'Luxury Interior'
         }
